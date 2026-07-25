@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.E.G.I.S. — Campaign Terminal // Year 3025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090d;
+  --bg2:#0c1017;
+  --panel:#10161f;
+  --panel2:#151d29;
+  --line:#1f2b3a;
+  --cyan:#27d7e8;
+  --cyan-dim:#1a8a96;
+  --red:#e83b4e;
+  --red-dim:#8a2430;
+  --amber:#e8b53b;
+  --text:#c8d4e0;
+  --text-dim:#7b8a9b;
+  --mono:'Share Tech Mono',monospace;
+  --disp:'Orbitron',sans-serif;
+  --body:'Rajdhani',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.55;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 1px,transparent 1px 3px);}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{font-family:var(--disp);letter-spacing:.06em}
+h2{color:var(--cyan);font-size:1.5rem;margin-bottom:.75rem;text-transform:uppercase}
+h3{color:var(--amber);font-size:1.05rem;margin:1.4rem 0 .5rem;text-transform:uppercase}
+p{margin-bottom:.8rem}
+.mono{font-family:var(--mono)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(7,9,13,.95);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center;flex-wrap:wrap;gap:.25rem;padding:.5rem 1rem;}
+nav .brand{font-family:var(--disp);font-weight:900;color:var(--cyan);font-size:1.05rem;margin-right:1rem;letter-spacing:.15em}
+nav .brand span{color:var(--red)}
+nav button.tab{background:none;border:1px solid transparent;color:var(--text-dim);font-family:var(--body);
+  font-weight:600;font-size:.95rem;padding:.35rem .7rem;cursor:pointer;text-transform:uppercase;letter-spacing:.08em}
+nav button.tab:hover{color:var(--cyan)}
+nav button.tab.active{color:var(--cyan);border-color:var(--cyan-dim);background:rgba(39,215,232,.06)}
+#gmToggle{margin-left:auto;background:var(--panel);border:1px solid var(--red-dim);color:var(--red);
+  font-family:var(--mono);font-size:.8rem;padding:.35rem .7rem;cursor:pointer;letter-spacing:.1em}
+#gmToggle.on{background:var(--red-dim);color:#fff;border-color:var(--red)}
+
+/* LAYOUT */
+main{max-width:1060px;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+section.page{display:none}
+section.page.visible{display:block}
+.panel{background:var(--panel);border:1px solid var(--line);padding:1.1rem 1.25rem;margin-bottom:1.1rem}
+.panel.accent{border-left:3px solid var(--cyan)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;padding:.1rem .5rem;
+  border:1px solid var(--cyan-dim);color:var(--cyan);margin-bottom:.5rem;text-transform:uppercase}
+.tag.red{border-color:var(--red-dim);color:var(--red)}
+.tag.amber{border-color:#8a6d24;color:var(--amber)}
+
+/* HERO */
+.hero{text-align:center;padding:3rem 1rem 2.5rem;border:1px solid var(--line);
+  background:linear-gradient(180deg,var(--bg2),var(--bg));margin-bottom:1.25rem;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse at 50% -20%,rgba(39,215,232,.12),transparent 60%);pointer-events:none}
+.hero h1{font-size:clamp(2rem,7vw,4rem);font-weight:900;color:#e9f2f8;letter-spacing:.18em}
+.hero h1 span{color:var(--cyan)}
+.hero .sub{font-family:var(--mono);color:var(--red);letter-spacing:.25em;font-size:.85rem;margin-top:.4rem;text-transform:uppercase}
+.hero .year{font-family:var(--mono);color:var(--text-dim);margin-top:1rem;font-size:.85rem;letter-spacing:.2em}
+.propaganda{font-family:var(--mono);font-size:.78rem;color:var(--text-dim);border-top:1px dashed var(--line);
+  margin-top:1.5rem;padding-top:.8rem;letter-spacing:.08em}
+.propaganda b{color:var(--amber)}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:.6rem 0 1rem;font-size:.95rem}
+th{font-family:var(--disp);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);
+  text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--cyan-dim);background:rgba(39,215,232,.04)}
+td{padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+tr:hover td{background:rgba(39,215,232,.03)}
+.tblwrap{overflow-x:auto}
+
+/* SPOILERS */
+.spoiler{display:none}
+body.gm .spoiler{display:revert}
+body.gm .spoiler.blockspoiler{display:block}
+body.gm td.spoiler{display:table-cell}
+body.gm th.spoiler{display:table-cell}
+body.gm tr.spoiler{display:table-row}
+.gm-note{background:rgba(232,59,78,.06);border:1px solid var(--red-dim);border-left:3px solid var(--red);
+  padding:.8rem 1rem;margin:.8rem 0;font-size:.95rem}
+.gm-note .tag{margin-bottom:.3rem}
+.gm-banner{display:none;font-family:var(--mono);font-size:.75rem;color:var(--red);letter-spacing:.2em;
+  text-align:center;padding:.3rem;border-bottom:1px solid var(--red-dim);background:rgba(232,59,78,.07)}
+body.gm .gm-banner{display:block}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.card{background:var(--panel);border:1px solid var(--line);padding:1rem 1.1rem}
+.card h4{font-family:var(--disp);color:#e9f2f8;font-size:1rem;letter-spacing:.08em;text-transform:uppercase}
+.card .role{font-family:var(--mono);font-size:.75rem;color:var(--cyan);letter-spacing:.1em;margin-bottom:.5rem}
+.card p{font-size:.93rem;margin-bottom:.4rem}
+.card .k{color:var(--amber);font-weight:600}
+
+/* PLAY TERMINAL */
+#terminal{background:#04070a;border:1px solid var(--cyan-dim);font-family:var(--mono);font-size:.9rem;
+  height:420px;overflow-y:auto;padding:1rem;margin-bottom:.5rem}
+#terminal .sys{color:var(--text-dim)}
+#terminal .roll{color:var(--amber)}
+#terminal .speak .who{color:var(--cyan);font-weight:bold}
+#terminal .gmline .who{color:var(--red);font-weight:bold}
+#terminal .crit{color:#5aff8a;font-weight:bold}
+#terminal .fail{color:var(--red);font-weight:bold}
+#terminal div{margin-bottom:.45rem;white-space:pre-wrap}
+.playrow{display:flex;gap:.5rem;flex-wrap:wrap}
+.playrow select,.playrow input[type=text]{background:var(--panel2);border:1px solid var(--line);color:var(--text);
+  font-family:var(--mono);font-size:.9rem;padding:.55rem .6rem}
+.playrow input[type=text]{flex:1;min-width:200px}
+.playrow button,.btn{background:var(--cyan-dim);border:none;color:#03181b;font-family:var(--disp);font-weight:700;
+  font-size:.8rem;letter-spacing:.1em;padding:.55rem 1rem;cursor:pointer;text-transform:uppercase}
+.playrow button:hover,.btn:hover{background:var(--cyan)}
+.btn.ghost{background:var(--panel2);color:var(--text-dim);border:1px solid var(--line)}
+.btn.ghost:hover{color:var(--cyan);border-color:var(--cyan-dim);background:var(--panel2)}
+.dicebar{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem;align-items:center}
+.dicebar label{font-family:var(--mono);font-size:.75rem;color:var(--text-dim);letter-spacing:.08em}
+.dicebar input[type=number]{width:64px;background:var(--panel2);border:1px solid var(--line);color:var(--text);
+  font-family:var(--mono);padding:.45rem .4rem;font-size:.9rem}
+.help{font-family:var(--mono);font-size:.76rem;color:var(--text-dim);margin-top:.6rem;line-height:1.7}
+.help b{color:var(--cyan)}
+
+/* DOWNLOADS */
+.dl{display:flex;align-items:center;gap:1rem;background:var(--panel);border:1px solid var(--line);
+  padding:1rem 1.2rem;margin-bottom:.8rem}
+.dl .icon{font-family:var(--disp);font-weight:900;color:var(--red);border:1px solid var(--red-dim);
+  padding:.5rem .6rem;font-size:.8rem;letter-spacing:.05em}
+.dl .info{flex:1}
+.dl .info b{color:#e9f2f8;font-family:var(--disp);font-size:.9rem;letter-spacing:.06em;text-transform:uppercase}
+.dl .info p{font-size:.88rem;color:var(--text-dim);margin:0}
+
+footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-family:var(--mono);
+  font-size:.72rem;color:var(--text-dim);letter-spacing:.15em}
+@media print{nav,#gmToggle,.playrow,.dicebar{display:none}}
+</style>
+</head>
+<body>
+
+<div class="gm-banner">// GM MODE ACTIVE — SPOILER CANON UNLOCKED — DO NOT SCREEN-SHARE WITH PLAYERS //</div>
+
+<nav>
+  <span class="brand">A.E.G.I.S.<span>//3025</span></span>
+  <button class="tab active" data-page="home">Home</button>
+  <button class="tab" data-page="setting">The Setting</button>
+  <button class="tab" data-page="rules">Rules</button>
+  <button class="tab" data-page="dossiers">Dossiers</button>
+  <button class="tab" data-page="missions">Mission Board</button>
+  <button class="tab" data-page="play">Play</button>
+  <button class="tab" data-page="downloads">Downloads</button>
+  <button id="gmToggle" onclick="toggleGM()">GM MODE: OFF</button>
+</nav>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section id="page-home" class="page visible">
+  <div class="hero">
+    <h1>A.E.G.I.S.</h1>
+    <div class="sub">Astral Expanse Galactic Interlink System</div>
+    <div class="year">// YEAR 3025 // SIX GALAXIES // ONE AUTHORITY //</div>
+    <div class="propaganda">A.E.G.I.S. PUBLIC BROADCAST: <b>Independent heroism is terrorism.</b> Report unsanctioned power. Trust P.A.R.A.G.O.N. Trust order. Trust A.E.G.I.S.</div>
+  </div>
+
+  <div class="panel accent">
+    <span class="tag">Core Premise</span>
+    <p>A.E.G.I.S. is a superhero science-fantasy tabletop setting about a universe where state-controlled order has replaced independent heroism. The multiverse collapsed into a single Prime Universe. In the aftermath, six galaxies unified for survival — but the emergency authority that saved civilization refused to give power back.</p>
+    <p>The central conflict is not simply heroes versus villains. It is <b style="color:var(--cyan)">heroism versus militarized control</b>. A.E.G.I.S. teaches that independent heroes are terrorists. The Vigilantes believe A.E.G.I.S. has turned protection into obedience and hope into propaganda.</p>
+  </div>
+
+  <div class="panel">
+    <span class="tag">Factions</span>
+    <div class="tblwrap"><table>
+      <tr><th>Faction</th><th>Description</th></tr>
+      <tr><td><b>A.E.G.I.S.</b></td><td>Astral Expanse Galactic Interlink System. The overarching military, political, and security authority of the six united galaxies.</td></tr>
+      <tr><td><b>P.A.R.A.G.O.N.</b></td><td>Powered Ascendancy Response &amp; Authority Group for Operational Neutralization. The superhuman military branch of A.E.G.I.S.</td></tr>
+      <tr><td><b>The Vigilantes</b></td><td>Modern illegal heroes resisting A.E.G.I.S. control and trying to restore free heroism.</td></tr>
+      <tr><td><b>Justice Society of Sovereigns</b></td><td>The old hero team from before the full propaganda era. Broken by A.E.G.I.S. and P.A.R.A.G.O.N.</td></tr>
+      <tr><td><b>Zero Ascendancy Policy</b></td><td>A.E.G.I.S. doctrine: no independent superhuman power may rise outside sanctioned authority.</td></tr>
+    </table></div>
+  </div>
+
+  <div class="panel">
+    <span class="tag amber">Running Tone</span>
+    <p>The setting should feel like <b>superhero myth after the state won</b>. A.E.G.I.S. is not cartoon evil — it saved civilization, then used that victory to justify permanent control. The Vigilantes are not clean heroes — they bleed, kill, argue, and break laws, but they protect people directly. Old heroes are not nostalgia only: their choices, sins, and betrayals are still alive.</p>
+    <p style="color:var(--cyan);font-weight:600">The core question: Who gets to decide whether power is a curse, a weapon, a crime, or a gift?</p>
+  </div>
+</section>
+
+<!-- ============ SETTING ============ -->
+<section id="page-setting" class="page">
+  <h2>Timeline &amp; Major History</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Event</th><th>Timeframe</th><th>Canon Summary</th></tr>
+    <tr><td><b>The Prime Convergence</b></td><td>50 years ago</td><td>The multiverse collapsed toward a single Prime Universe. Reality tore open, populations were displaced, variants appeared, new powers emerged, and physics anomalies spread.</td></tr>
+    <tr><td><b>The Unity War</b></td><td>After Convergence</td><td>Multiple galaxies unified for survival. A.E.G.I.S. began as a temporary central command authority and became permanent.</td></tr>
+    <tr><td><b>The Shift</b></td><td>After stability returned</td><td>A.E.G.I.S. did not relinquish power. It militarized superhumans, created P.A.R.A.G.O.N., and enforced the Zero Ascendancy Policy.</td></tr>
+    <tr><td><b>The Sovereign Uprising</b></td><td>25 years ago</td><td>The Justice Society of Sovereigns refused A.E.G.I.S. authority and demanded freedom for superhumans.</td></tr>
+    <tr><td><b>The Broadcast War</b></td><td>25 years ago</td><td>The confrontation was streamed across all six galaxies. Heroes were killed, captured, or publicly broken. A.E.G.I.S. framed them as threats to peace.</td></tr>
+    <tr><td><b>The Propaganda Era</b></td><td>Current era</td><td>Independent heroes are taught as terrorists. A.E.G.I.S. is taught as peacekeeper. P.A.R.A.G.O.N. is taught as protector of order.</td></tr>
+    <tr class="spoiler"><td><b>The Sovereign Return</b></td><td>Current campaign</td><td>The Vigilantes saved Sovereign. ThunderBringer joined them. Their plan is to turn heroes against A.E.G.I.S. slowly and carefully.</td></tr>
+  </table></div></div>
+
+  <h2>The Six Galaxies</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Galaxy</th><th>Primary Association</th><th>Notes</th></tr>
+    <tr><td><b>Solarium Prime</b></td><td>Central authority</td><td>Political and military hub of A.E.G.I.S. Bright, public-facing, and propaganda-heavy.</td></tr>
+    <tr><td><b>Ferox Veil</b></td><td>Wargs</td><td>Home sphere of Warg hierarchy, the Wolf Dominion, and major biological-destiny doctrine.</td></tr>
+    <tr><td><b>Eldrasyl Veil</b></td><td>Alder</td><td>Ancient, refined, cosmic, arcane, intellectual, and secretive.</td></tr>
+    <tr><td><b>Helion Verge</b></td><td>Brightons</td><td>Marked by the dying Brighton home star system, exile, fading light, and refugee dynamics.</td></tr>
+    <tr><td><b>Mycelara Depths</b></td><td>Mycelyth</td><td>Fungal collective civilization with vast underground and subspace networks.</td></tr>
+    <tr><td><b>Graven Hyld</b></td><td>Graven</td><td>Ancient stone-metal civilization of memory cores, ancestors, wars, and living history.</td></tr>
+  </table></div></div>
+
+  <h2>Species &amp; Power Blocs</h2>
+
+  <div class="panel">
+    <h3>Wargs &amp; the Wolf Dominion</h3>
+    <p>Wargs are genetically diverse anthropomorphic beings, each lineage tied to an animal archetype. They are physically superior to baseline humans, naturally inclined toward lineage traits, and socially engineered into rigid roles. The Lupine High Houses govern Warg society across the galaxies, enforce biological destiny, and work directly with A.E.G.I.S. and P.A.R.A.G.O.N. Mutation inside noble wolf houses is viewed as weakness and danger, not evolution.</p>
+    <h3>The IX Royal House</h3>
+    <p>The IX are male Warg princes from a powerful non-wolf royal house — the only non-wolf house holding real power beside the Lupine High Houses. Their numbering ranks power from IX-100 to IX-1, with IX-1 the strongest. Known princes: <b>IX-66</b> and <b>IX-77</b> (IX-66 ranks above IX-77). Core traits: extreme strength, durability, regeneration, royal arrogance, and predatory warrior culture.</p>
+    <div class="gm-note spoiler blockspoiler"><span class="tag red">GM Spoiler</span><br>Key weakness revealed: HellKnight's black hellfire prevents IX regeneration and terrifies them.</div>
+  </div>
+
+  <div class="panel">
+    <h3>Alder</h3>
+    <p>Ancient, long-lived humanoids: centuries-to-millennia lifespans, refined intellect, near-perfect physical control, and deep connection to cosmic and arcane forces.</p>
+    <div class="gm-note spoiler blockspoiler"><span class="tag red">GM Spoiler</span><br>The Alder are old enough and perceptive enough to suspect Sovereign may be approximately 2,000 years old. Elegantari is an Alder and the father of Mythos — his forbidden union with Athena is a major secret.</div>
+    <h3>Brightons</h3>
+    <p>Sentient energy-based beings born from a star system that was birthplace, power source, and collective anchor. Semi-corporeal, radiant, luminous, emotionally intense, constantly shifting. Their home galaxy is dying; most survivors have left to join or shelter with the Alder. SunBurst was a Brighton bound to a battle mech — a living star-being turned fast, witty, radiant war machine.</p>
+    <h3>Mycelyth</h3>
+    <p>Fungal-based collective beings with semi-humanoid bodies and vast underground/subspace networks. They share consciousness across distances but are not mindless — a living ecosystem with thought.</p>
+    <h3>Graven</h3>
+    <p>Stone- and metal-bodied beings infused with ancient energy. Each carries memory cores of ancestors, wars, knowledge, and ancient truths. Killing a Graven can destroy a person, a bloodline, and a library of history.</p>
+    <h3>Kurathi / Kaerathi</h3>
+    <p>The same race under different spellings and cultural usage — Kurathi is used for Athena, Enforcer, and the imperial/political context. Genetically perfected warrior beings: superior physical genetics, regeneration, flight, kinetic manipulation, gravimetric weaponry, adaptive warframes, and conquest-driven culture. Their civilization refused full A.E.G.I.S. integration, but Kurathi power centers and Earth government representatives remain important diplomatic players.</p>
+  </div>
+
+  <h2>Relationship Web</h2>
+  <div class="panel spoiler blockspoiler">
+    <span class="tag red">GM Spoiler — Story Spines</span>
+    <p><b style="color:var(--cyan)">Emotional Spine:</b> Boom dies protecting civilians. Young Vendetta witnesses it and becomes a rebel against the lie. K becomes Vendetta's sidekick and chosen pack. Harbinger learns Vendetta's hard truth. Sovereign returns. ThunderBringer rejoins the fight. The Vigilantes begin turning heroes against A.E.G.I.S.</p>
+    <p><b style="color:var(--cyan)">Revenge Spine:</b> Thought kills Connor → HellKnight is banished → Thought helps bring down Boom → HellKnight returns → HellKnight hunts Thought → Clockwork Angel's mother is revealed as part of that old debt.</p>
+    <p><b style="color:var(--cyan)">Political Spine:</b> A.E.G.I.S. controls the six galaxies. P.A.R.A.G.O.N. controls superhumans. Sovereign's survival threatens the lie. The Vigilantes target heroes, species governments, and hidden truths before starting open war.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Relationship</th><th>Nature</th></tr>
+      <tr><td>Sovereign &amp; ThunderBringer</td><td>Old leader and sidekick. Loyalty, guilt, and restored purpose.</td></tr>
+      <tr><td>Vendetta &amp; K</td><td>Mentor, pack-leader, field partner, and dark sidekick bond.</td></tr>
+      <tr><td>Vendetta &amp; Ryse</td><td>Ideological mirrors: chains versus order, grief versus faith.</td></tr>
+      <tr><td>Harbinger &amp; Vendetta</td><td>Hard truth relationship. Vendetta recognizes what Harbinger is becoming.</td></tr>
+      <tr><td>Mythos &amp; Athena</td><td>Mother/trainer and forbidden son. Love expressed as impossible control.</td></tr>
+      <tr><td>Mythos &amp; Elegantari</td><td>Alder father, forbidden bloodline, political death sentence.</td></tr>
+      <tr><td>Clockwork Angel &amp; HellKnight</td><td>Old debt through her mother. HellKnight protects her because Eleanor saved him.</td></tr>
+      <tr><td>HellKnight &amp; Thought</td><td>Vengeance. Thought killed Connor and added names to HellKnight's dead.</td></tr>
+      <tr><td>Bansidhe &amp; Vendetta</td><td>Freedom, obsession, anger, gratitude, attraction, and instability.</td></tr>
+      <tr><td>Sovereign &amp; A.E.G.I.S.</td><td>Living proof that the old narrative is false.</td></tr>
+    </table></div>
+  </div>
+
+  <h2>Glossary</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Term</th><th>Meaning</th></tr>
+    <tr><td>A.E.G.I.S.</td><td>Astral Expanse Galactic Interlink System; six-galaxy command authority.</td></tr>
+    <tr><td>P.A.R.A.G.O.N.</td><td>Superhuman military branch of A.E.G.I.S.</td></tr>
+    <tr><td>Zero Ascendancy Policy</td><td>No independent superhuman power may rise outside sanctioned authority.</td></tr>
+    <tr><td>Prime Convergence</td><td>The multiverse collapse into the Prime Universe 50 years ago.</td></tr>
+    <tr><td>Broadcast War</td><td>Public streamed defeat of the old heroes.</td></tr>
+    <tr><td>The Propaganda Era</td><td>Current era where independent heroes are taught as threats.</td></tr>
+    <tr><td>The People's Line</td><td>Boom's shield and symbol of civilian-first heroism.</td></tr>
+    <tr><td>The Boom Engine</td><td>Boom's escalation state, where incoming punishment made his explosive output worse.</td></tr>
+    <tr><td>Shadow-Slip</td><td>Harbinger's shadow-based displacement that can look like phasing (he does <i>not</i> have true phasing).</td></tr>
+    <tr><td>HELIO-9</td><td>A.E.G.I.S. orbital weapon platform hacked by Kitsune.</td></tr>
+    <tr><td>Blackgate Omega</td><td>Most secure superhuman prison in the eastern galaxies; 93 inmates escaped.</td></tr>
+    <tr><td>Dead Zone</td><td>Harbinger's shadow technique that turns space around him into shadow.</td></tr>
+    <tr><td>Fabric Tear</td><td>A-class villain and reality cutter.</td></tr>
+  </table></div></div>
+</section>
+
+<!-- ============ RULES ============ -->
+<section id="page-rules" class="page">
+  <h2>Resolution Mechanic</h2>
+  <div class="panel accent">
+    <p class="mono" style="font-size:1.15rem;color:var(--cyan)">CORE ROLL = 1d10 + Attribute + Skill + Power (if applicable)</p>
+    <div class="tblwrap"><table>
+      <tr><th>Element</th><th>Rule</th></tr>
+      <tr><td><b>Attributes</b></td><td>Physical, Mental, Social.</td></tr>
+      <tr><td><b>Skill Range</b></td><td>Normally 0–5. Some characters have overcap specialties (e.g., Harbinger Pain Tolerance 7, Kitsune Tech 6).</td></tr>
+      <tr><td><b>XP Costs</b></td><td>Attributes: 5 XP per dot. Skills: 3 XP per new dot. Powers: 10 XP per new dot.</td></tr>
+    </table></div>
+  </div>
+
+  <h2>Skill List</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Physical Skills</th><th>Mental Skills</th><th>Social Skills</th></tr>
+    <tr><td>Brawl</td><td>Investigation</td><td>Deception</td></tr>
+    <tr><td>Firearms</td><td>Tactics</td><td>Intimidation</td></tr>
+    <tr><td>Athletics</td><td>Tech</td><td>Persuasion</td></tr>
+    <tr><td>Reflex</td><td>Medicine</td><td>Fame</td></tr>
+    <tr><td>Endurance</td><td>Awareness</td><td>Insight</td></tr>
+  </table></div></div>
+
+  <h2>Character Advancement</h2>
+  <div class="panel">
+    <div class="tblwrap"><table>
+      <tr><th>Purchase</th><th>Cost</th></tr>
+      <tr><td>Attribute dot</td><td class="mono">5 XP</td></tr>
+      <tr><td>New skill dot</td><td class="mono">3 XP</td></tr>
+      <tr><td>New power dot</td><td class="mono">10 XP</td></tr>
+    </table></div>
+    <p style="color:var(--text-dim);font-size:.9rem">Overcap specialties beyond skill 5 exist for exceptional characters at GM discretion.</p>
+  </div>
+
+  <h2>Canon Corrections</h2>
+  <div class="panel">
+    <p>• A.E.G.I.S. is <b>not</b> ARGOS. ARGOS is an old draft term, intelligence error, or discarded file name unless intentionally reintroduced as an outdated codename.</p>
+    <p>• Harbinger does <b>not</b> have true phasing. Any apparent phasing is shadow-based displacement known as <b>Shadow-Slip</b>.</p>
+  </div>
+</section>
+
+<!-- ============ DOSSIERS ============ -->
+<section id="page-dossiers" class="page">
+  <h2>The Old Justice Society of Sovereigns</h2>
+  <div class="panel">
+    <p>Before A.E.G.I.S. controlled the stars, there were heroes who acted without permission. The greatest of them were the <b>Justice Society of Sovereigns</b> — protectors, symbols, rebels, celebrities, soldiers, monsters to some, saviors to others. A.E.G.I.S. teaches that the JSS became too dangerous and had to be stopped. Older people, hidden communities, and outlaw heroes tell a different story.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Member</th><th>Identity / Species</th><th>Player-Facing Summary</th><th class="spoiler">GM Spoiler Notes</th></tr>
+      <tr><td><b>Sovereign</b></td><td>Last of his kind</td><td>Leader of the old JSS and symbol of the Hero Age. A.E.G.I.S. claimed he was defeated, but rumors say the truth was never that simple.</td><td class="spoiler">Approx. 2,000 years old. Destroyed his own species to stop a galaxy-annihilating weapon. Swore never to kill again. Strong enough to destroy A.E.G.I.S. alone.</td></tr>
+      <tr><td><b>Boom</b></td><td>Hero of the people</td><td>Wielder of The People's Line. Loud, fearless, impossible to ignore. Died during the broadcasted assault.</td><td class="spoiler">He died protecting civilians. Thought delivered the final blow, and Boom forgave him.</td></tr>
+      <tr><td><b>Athena</b></td><td>Kurathi</td><td>Warrior, strategist, and disciplined old JSS member. Known for discipline, control, and battlefield precision.</td><td class="spoiler">Mother of Mythos. Former lover of HellKnight and mother of Connor. Rescued Battle Brute. Forbidden union with Elegantari.</td></tr>
+      <tr><td><b>Old Clockwork Angel</b></td><td>Legacy hero</td><td>Original protector and stabilizer many modern heroes still respect.</td><td class="spoiler">Mother of current Clockwork Angel. Saved HellKnight's life. Possibly named Eleanor. Now dead.</td></tr>
+      <tr><td><b>Battle Brute / Lunar Fang</b></td><td>Warg, Shadow Call wolf noble</td><td>Frontline powerhouse whose mutation let him duplicate himself into a one-man army.</td><td class="spoiler">Mutation allowed up to 99 duplicates. His wolf house tried to kill him. Athena rescued him and brought him to Earth.</td></tr>
+      <tr><td><b>Thought</b></td><td>Former member / traitor</td><td>Mysterious speed/intelligence-based member whose role in the fall remains surrounded by rumor and contradiction.</td><td class="spoiler">Killed Connor, helped bring down Boom, and is hunted by HellKnight.</td></tr>
+      <tr><td><b>Master Mind / M</b></td><td>Strongest psychic recorded</td><td>Chaotic, brilliant, hard-living psychic — infamous for appearing uninvited.</td><td class="spoiler">Dark teal psychic energy, psychic armor/weapons, bisexual, many lovers, pocket-dimension manor.</td></tr>
+      <tr><td><b>SunBurst</b></td><td>Brighton bound to battle mech</td><td>Fast, bright, sarcastic, beloved for radiant whips and constant quips.</td><td class="spoiler">A Spider-Man/Flash-style personality. Light forced into a war machine.</td></tr>
+    </table></div>
+    <div class="gm-note spoiler blockspoiler">
+      <span class="tag red">GM Spoiler — Sovereign, Key Truths</span>
+      <p style="margin:.4rem 0 0">He is ~2,000 years old; only the Alder suspect it. He is the last of his kind. His people built a weapon capable of annihilating galaxies — fearing they would use it, he destroyed his own species. He swore never to kill again and has kept that oath. His power and speed are unmatched; he can kill Kurathi without difficulty. He could destroy A.E.G.I.S. by himself, but refuses to become the destroyer again.</p>
+    </div>
+    <div class="gm-note spoiler blockspoiler">
+      <span class="tag red">GM Spoiler — Athena, Elegantari &amp; Mythos</span>
+      <p style="margin:.4rem 0 0">Athena is Kurathi. Elegantari is Alder. Mythos is their son — a forbidden Kurathi-Alder hybrid whose existence would be a death sentence if either side learned who and what he is. Athena trained Mythos with extreme discipline because loss of control could expose his heritage and catastrophic power. Her doctrine, <i>"Emotion destroys worlds,"</i> is both emotional damage and survival strategy.</p>
+    </div>
+  </div>
+
+  <h2>The Vigilantes — Current Roster</h2>
+  <div class="grid">
+    <div class="card"><h4>Sovereign</h4><div class="role">RESTORED LEADER / LIVING PROOF</div>
+      <p>Alive, ancient, impossibly powerful, and restrained by his no-kill oath.</p></div>
+    <div class="card"><h4>ThunderBringer / StormBringer</h4><div class="role">STORM-LEVEL REBEL</div>
+      <p>Former sidekick to Sovereign; joined after Sovereign was saved. Total atmospheric control, global weather manipulation, lightning, wind, pressure, flight, temperature manipulation, storm amplification. A.E.G.I.S. threat rating: <span class="k">9+</span>.</p></div>
+    <div class="card"><h4>Vendetta</h4><div class="role">STREET-LEVEL HEART / HARDLINE PROTECTOR</div>
+      <p><span class="k">Powers:</span> Regeneration, density manipulation, firearms.</p>
+      <p><span class="k">Defining event:</span> Saint Lazarus Holdout — held a hospital for 16 hours and defeated 23 escaped villains before Grinder arrived.</p>
+      <p><span class="k">Core ethic:</span> Victory is measured by who survives behind him — <i>"No. But they didn't get you."</i></p></div>
+    <div class="card"><h4>K</h4><div class="role">VENDETTA'S SIDEKICK / CHOSEN PACK</div>
+      <p>Komodo Warg variant. Superhuman strength, durability, regeneration, venomous bite, thermal resistance, enhanced senses, claws, tail strike, natural armor. A weaponized survivor who found loyalty through chosen pack.</p></div>
+    <div class="card"><h4>Harbinger</h4><div class="role">EXPLOSIVE-SHADOW VIGILANTE</div>
+      <p><span class="k">Powers:</span> Regeneration (Annihilation branch), explosive charging of broken-off body parts (Shotgun technique; Energize branch), Shadow control (Veins of the Night, Dead Zone), Shadow-Slip displacement. Cosmic Blessed &amp; Cosmic Blooded.</p>
+      <p class="spoiler"><span class="k">Weakness:</span> Specific frequencies can disrupt regeneration sync.</p></div>
+    <div class="card"><h4>Kitsune</h4><div class="role">TECH GENIUS / CHAOS OPERATOR</div>
+      <p><span class="k">Powers:</span> Chaos Control, Telekinesis (telekinetic swarm), Luck, Super Intelligence (Disconnect). Techniques: Mental Hack, Logical Conclusion.</p>
+      <p>Drone controller, probability disruptor, systems hacker, and battlefield planner.</p></div>
+    <div class="card"><h4>Mythos</h4><div class="role">COSMIC FIGHTER</div>
+      <p><span class="k">Known powers:</span> Kinetic blades, energy armor, teleportation, ancient runes, spell circles, kinetic absorption/redirection, high-speed combat, regeneration, arcane precision, and deeper ancient raw power.</p>
+      <p class="spoiler"><span class="k">True origin:</span> Forbidden son of Athena (Kurathi) and Elegantari (Alder). Both sides would likely kill him if his identity became public.</p>
+      <p class="spoiler"><span class="k">Defining event:</span> Killed Ajax Prime during the Nightworld Incident after losing emotional control.</p>
+      <p class="spoiler"><span class="k">Core fear:</span> Not that he might lose — that he might enjoy what he becomes.</p></div>
+    <div class="card"><h4>Clockwork Angel</h4><div class="role">PROTECTOR / LEGACY HERO</div>
+      <p>Daughter of the original Clockwork Angel. Mechanical wings, chest core, temporal shielding, field manipulation, kinetic barriers, chrono-reactive armor, biometric stabilization, light constructs.</p>
+      <p class="spoiler"><span class="k">Key event:</span> Nearly killed by IX-66 and saved when HellKnight returned. Carries her mother's debt into the current rebellion.</p></div>
+  </div>
+
+  <h2 style="margin-top:1.5rem">Wildcards, Antagonists &amp; Major NPCs</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Name</th><th>Role</th><th>Canon Notes</th></tr>
+    <tr><td><b>HellKnight</b></td><td>Ancient infernal revenge force</td><td><span class="spoiler">Former lover of Athena, father of Connor. Thought killed Connor and banished HellKnight to Hell for 50 years. </span>His black hellfire prevents regeneration and can wound IX princes.</td></tr>
+    <tr><td><b>Bansidhe</b></td><td>Rogue antihero / sonic weapon</td><td>Former KGB asset. Human enhanced. Sonic scream, flight, perception, durability, and gear. Vendetta broke her control systems and freed her, creating a volatile bond.</td></tr>
+    <tr><td><b>Enforcer</b></td><td>Kurathi P.A.R.A.G.O.N. contract asset</td><td>Publicly presented as Justice Society-aligned<span class="spoiler">, privately a covert enforcer and hitman</span>. Physical threat tier 9. Major complication for the Kurathi mission.</td></tr>
+    <tr><td><b>Ryse</b></td><td>A.E.G.I.S.-loyal hopeful hero</td><td>Believes A.E.G.I.S. is flawed but necessary. Ideological mirror to Vendetta.<span class="spoiler"> Potential future recruit if Sovereign's truth reaches him.</span></td></tr>
+    <tr><td><b>Paradox</b></td><td>Existential wildcard</td><td>Time, plague, reality, arcane, and possession threat.<span class="spoiler"> Public hero image may hide A.E.G.I.S. containment and Morgan entity complications.</span></td></tr>
+    <tr><td><b>Thought</b></td><td>Traitor and speed/mental threat</td><td>Former JSS member.<span class="spoiler"> Killed Connor, delivered the final blow to Boom, and is hunted by HellKnight.</span></td></tr>
+    <tr><td><b>Fabric Tear</b></td><td>A-class villain</td><td>Reality cutter.<span class="spoiler"> May know Convergence secrets. Must be recruited, contained, or defeated.</span></td></tr>
+    <tr><td><b>Salem Coven</b></td><td>Mystic team</td><td>Hunted occult team with distrust of soldiers and state heroes.<span class="spoiler"> Potential rebellion allies.</span></td></tr>
+    <tr><td><b>Cosmic Howl</b></td><td>Tragic Warg stellar mutant</td><td>Rejected by Warg society, taken by A.E.G.I.S., enhanced, caged — died after being driven into the sun by Mythos and Kitsune using HELIO-9.</td></tr>
+    <tr><td><b>Ajax Prime</b></td><td>Prime survivor</td><td>Collapsed-universe conqueror infused with antimatter.<span class="spoiler"> Killed by Mythos during the Nightworld Incident.</span></td></tr>
+  </table></div></div>
+
+  <h2>Major Story Events</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Event</th><th>Characters</th><th>Summary</th></tr>
+    <tr><td><b>Boom's Last Stand</b></td><td>Boom, Thought, young Vendetta, P.A.R.A.G.O.N.</td><td>A.E.G.I.S. broadcast Boom as unstable<span class="spoiler"> while hiding that he was protecting evacuation corridors. Sonic dampeners and nanobites weakened him. Thought delivered the final blow. Boom forgave him and gave the people a final thumbs up</span>.</td></tr>
+    <tr><td><b>Saint Lazarus Holdout</b></td><td>Vendetta, Harbinger, Grinder, Voltage Priest</td><td>After Blackgate Omega collapsed, 93 inmates escaped. Vendetta held Saint Lazarus Medical Center for 16 hours and defeated 23 villains before Harbinger arrived. They killed Grinder and stayed for threat 24.</td></tr>
+    <tr><td><b>Rooftop Lesson</b></td><td>Harbinger, Kaos, Vendetta</td><td>Kaos used a frequency clamp to suppress Harbinger's healing and hostages to limit his explosions. Harbinger adapted, killed Kaos, saved civilians, and accepted that some monsters stay down.</td></tr>
+    <tr><td><b>Cosmic Howl Incident</b></td><td>Mythos, Kitsune, Cosmic Howl</td><td>A dying Warg stellar mutant created miniature suns above a city. Kitsune deployed a hidden battlefield and hacked HELIO-9. Mythos drove Cosmic Howl into the sun.</td></tr>
+    <tr class="spoiler"><td><b>Nightworld Incident</b></td><td>Mythos, Ajax Prime</td><td>Mythos faced Ajax Prime alone on a dead world. He lost control, destroyed Nightworld, and erased Ajax using ancient raw power beyond standard magic.</td></tr>
+    <tr class="spoiler"><td><b>HellKnight Return</b></td><td>HellKnight, Clockwork Angel, K, IX-66, IX-77</td><td>HellKnight arrived through black fire, revealed his hellfire prevents IX regeneration, recognized Clockwork Angel as the daughter of his old ally, and left to hunt Thought.</td></tr>
+    <tr><td><b>Rooftop Argument</b></td><td>Vendetta, Ryse</td><td>Vendetta captured Ryse and confronted him over A.E.G.I.S., Boom, and propaganda. Ryse insisted no one is beyond saving. Vendetta spared him.</td></tr>
+    <tr class="spoiler"><td><b>Sovereign Return</b></td><td>Vigilantes, ThunderBringer, Sovereign</td><td>The Vigilantes rescued Sovereign. He and ThunderBringer joined the Quiet Rebellion plan to turn heroes against A.E.G.I.S. carefully.</td></tr>
+  </table></div></div>
+
+  <h2 class="spoiler blockspoiler">Open Canon Questions <span class="tag red" style="vertical-align:middle">GM</span></h2>
+  <div class="panel spoiler blockspoiler">
+    <p>• Is the original Clockwork Angel definitively named Eleanor, or was that HellKnight's mistaken recognition?</p>
+    <p>• Are Gravilins a separate species, or another name/subgroup of the Graven?</p>
+    <p>• What is Thought's true reason for betraying the JSS, killing Connor, and striking Boom?</p>
+    <p>• Are Master Mind and SunBurst alive, missing, dead, or hidden?</p>
+    <p>• How much do the Alder know about Sovereign's age and Mythos' forbidden bloodline?</p>
+    <p>• Which P.A.R.A.G.O.N. heroes can be turned first, and which must be defeated?</p>
+  </div>
+</section>
+
+<!-- ============ MISSIONS ============ -->
+<section id="page-missions" class="page">
+  <h2>Current Strategic Plan: The Quiet Rebellion</h2>
+  <div class="panel accent spoiler blockspoiler">
+    <span class="tag red">GM / Campaign-Group Only</span>
+    <p>Sovereign's plan is not immediate open war. The Vigilantes will turn heroes against A.E.G.I.S. slowly, carefully, and with evidence:</p>
+    <p>1. Find heroes and P.A.R.A.G.O.N. loyalists with doubts.<br>
+    2. Show them evidence slowly rather than forcing immediate public war.<br>
+    3. Reveal A.E.G.I.S. lies one by one — especially around Boom, the JSS, Blackgate, and hidden experiments.<br>
+    4. Protect defectors before A.E.G.I.S. can erase them.<br>
+    5. Build enough internal fracture that A.E.G.I.S. begins to fall from disbelief, not only force.</p>
+  </div>
+  <div class="panel" id="missionLocked">
+    <p class="mono" style="color:var(--text-dim)">// MISSION BOARD ENCRYPTED — VIGILANTE CLEARANCE REQUIRED //<br>// Enable GM MODE to decrypt current operations. //</p>
+  </div>
+  <div class="panel spoiler blockspoiler">
+    <span class="tag red">Mission Board</span>
+    <div class="tblwrap"><table>
+      <tr><th>Mission</th><th>Target</th><th>Purpose</th><th>Best Fits</th></tr>
+      <tr><td><b>Recruit the Salem Coven</b></td><td>Mystic team in old Salem</td><td>Convince hunted occult heroes to join the rebellion.</td><td>Mythos, Harbinger, Master Mind if available, or a diplomatic team.</td></tr>
+      <tr><td><b>Find Fabric Tear</b></td><td>A-class reality-cutting villain</td><td>Turn him if possible. If not, put him in holding or defeat him once and for all.</td><td>Kitsune for analysis, Mythos for containment, Vendetta/Harbinger for force.</td></tr>
+      <tr><td><b>Kurathi Power Center</b></td><td>Kurathi Earth government representatives</td><td>Learn where Kurathi leadership stands and whether they are allied, threatened, or manipulating A.E.G.I.S.</td><td>Athena connection, Mythos risk, Enforcer complication.</td></tr>
+      <tr><td><b>Alder Representatives</b></td><td>Alder diplomatic/political enclave</td><td>Get truths about Convergence, Elegantari, Mythos, and Sovereign's age.</td><td>Mythos, Kitsune, Sovereign carefully.</td></tr>
+      <tr><td><b>Warg Delegation</b></td><td>Wolf Dominion and Warg power blocs</td><td>Exploit divisions between loyalists, doubters, IX princes, and rejected mutants.</td><td>K, Vendetta, Battle Brute legacy, ThunderBringer.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ PLAY ============ -->
+<section id="page-play" class="page">
+  <h2>Play Terminal</h2>
+  <div class="panel accent">
+    <p style="margin-bottom:.4rem">Text-based play space for the table. Pick who's speaking, narrate in text, and roll the core mechanic (<span class="mono" style="color:var(--cyan)">1d10 + Attribute + Skill + Power</span>). Export the session log when you're done.</p>
+  </div>
+  <div id="terminal"></div>
+  <div class="playrow">
+    <select id="speaker">
+      <option>GM</option>
+      <option>Sovereign</option>
+      <option>ThunderBringer</option>
+      <option>Vendetta</option>
+      <option>K</option>
+      <option>Harbinger</option>
+      <option>Kitsune</option>
+      <option>Mythos</option>
+      <option>Clockwork Angel</option>
+      <option>NPC</option>
+    </select>
+    <input type="text" id="sayInput" placeholder="Narrate, speak in character, or type /help for commands..." autocomplete="off">
+    <button onclick="submitLine()">Send</button>
+  </div>
+  <div class="dicebar">
+    <label>ATTRIBUTE <input type="number" id="dAttr" value="0" min="0" max="10"></label>
+    <label>SKILL <input type="number" id="dSkill" value="0" min="0" max="10"></label>
+    <label>POWER <input type="number" id="dPower" value="0" min="0" max="10"></label>
+    <button class="btn" onclick="coreRoll()">⚂ Core Roll</button>
+    <button class="btn ghost" onclick="exportLog()">Export Log</button>
+    <button class="btn ghost" onclick="clearLog()">Clear</button>
+  </div>
+  <div class="help">
+    <b>/roll d10+3</b> — quick roll with flat modifier &nbsp;·&nbsp; <b>/roll 2d10</b> — multiple dice &nbsp;·&nbsp;
+    <b>/core 3 2 4</b> — core roll with attribute 3, skill 2, power 4 &nbsp;·&nbsp;
+    <b>/scene Rooftop, rain, sirens below</b> — set a scene marker &nbsp;·&nbsp; <b>/help</b> — show commands.<br>
+    Log lives in this browser tab — export it before closing to save your session.
+  </div>
+</section>
+
+<!-- ============ DOWNLOADS ============ -->
+<section id="page-downloads" class="page">
+  <h2>Print &amp; Play — Downloads</h2>
+  <div class="panel accent"><p>Print-ready files for your table. Keep these in the same folder as this website for the links to work, or grab them wherever you host the site.</p></div>
+  <a class="dl" href="AEGIS_Character_Sheet.pdf" download>
+    <span class="icon">PDF</span>
+    <span class="info"><b>Blank Character Sheet</b><p>Attributes, skills, powers, merits &amp; flaws, XP tracking. Print one per player.</p></span>
+  </a>
+  <a class="dl" href="AEGIS_Quick_Rules_Reference.pdf" download>
+    <span class="icon">PDF</span>
+    <span class="info"><b>Quick Rules Reference</b><p>The core roll, skill list, and XP costs on one page. Print for the middle of the table.</p></span>
+  </a>
+  <a class="dl" href="AEGIS_Player_Handout_JSS.pdf" download>
+    <span class="icon">PDF</span>
+    <span class="info"><b>Player Handout — The Old JSS</b><p>Spoiler-safe legend of the Justice Society of Sovereigns. Hand to new players.</p></span>
+  </a>
+</section>
+
+</main>
+
+<footer>A.E.G.I.S. // CAMPAIGN TERMINAL // YEAR 3025 — UNSANCTIONED BROADCAST. STAY HIDDEN. STAY HEROES.</footer>
+
+<script>
+/* ---- NAV ---- */
+document.querySelectorAll('nav .tab').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('nav .tab').forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    document.querySelectorAll('section.page').forEach(function(s){s.classList.remove('visible')});
+    document.getElementById('page-'+btn.dataset.page).classList.add('visible');
+    window.scrollTo(0,0);
+  });
+});
+
+/* ---- GM MODE ---- */
+function toggleGM(){
+  var b=document.body, t=document.getElementById('gmToggle');
+  if(!b.classList.contains('gm')){
+    if(!confirm('GM MODE reveals hidden origins, betrayals, and rebellion plans.\n\nPlayers: do not proceed. Continue?'))return;
+    b.classList.add('gm'); t.textContent='GM MODE: ON'; t.classList.add('on');
+    var ml=document.getElementById('missionLocked'); if(ml)ml.style.display='none';
+  }else{
+    b.classList.remove('gm'); t.textContent='GM MODE: OFF'; t.classList.remove('on');
+    var ml2=document.getElementById('missionLocked'); if(ml2)ml2.style.display='';
+  }
+}
+
+/* ---- PLAY TERMINAL ---- */
+var term=document.getElementById('terminal');
+var logLines=[];
+function addLine(html,plain,cls){
+  var d=document.createElement('div');
+  if(cls)d.className=cls;
+  d.innerHTML=html;
+  term.appendChild(d);
+  term.scrollTop=term.scrollHeight;
+  logLines.push(plain);
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function d10(){return Math.floor(Math.random()*10)+1}
+
+addLine('<span class="sys">// A.E.G.I.S. PLAY TERMINAL v3025.1 — UNSANCTIONED CHANNEL OPEN //</span>','// SESSION START //','');
+addLine('<span class="sys">// Type /help for commands. The GM sets the scene. Heroes, stay hidden. //</span>','','');
+
+function submitLine(){
+  var inp=document.getElementById('sayInput');
+  var text=inp.value.trim();
+  if(!text)return;
+  inp.value='';
+  var who=document.getElementById('speaker').value;
+  if(text[0]==='/'){handleCommand(text,who);return;}
+  var cls=who==='GM'?'gmline':'speak';
+  addLine('<span class="who">'+esc(who)+':</span> '+esc(text), who+': '+text, cls+' speak');
+}
+document.getElementById('sayInput').addEventListener('keydown',function(e){if(e.key==='Enter')submitLine()});
+
+function handleCommand(text,who){
+  var parts=text.split(/\s+/);
+  var cmd=parts[0].toLowerCase();
+  if(cmd==='/help'){
+    addLine('<span class="sys">/roll d10+N — quick roll · /roll XdY — dice pool · /core A S P — 1d10+Attr+Skill+Power · /scene description — scene marker · /help</span>','// help //','');
+  }else if(cmd==='/scene'){
+    var sc=text.slice(6).trim()||'(untitled scene)';
+    addLine('<span class="sys">═══ SCENE: '+esc(sc).toUpperCase()+' ═══</span>','=== SCENE: '+sc+' ===','');
+  }else if(cmd==='/core'){
+    var a=parseInt(parts[1]||0)||0,s=parseInt(parts[2]||0)||0,p=parseInt(parts[3]||0)||0;
+    doCoreRoll(who,a,s,p);
+  }else if(cmd==='/roll'){
+    var expr=(parts[1]||'d10').toLowerCase();
+    var m=expr.match(/^(\d*)d(\d+)([+-]\d+)?$/);
+    if(!m){addLine('<span class="fail">// Bad roll format. Try /roll d10+3 or /roll 2d10 //</span>','// bad roll //','');return;}
+    var n=parseInt(m[1]||'1'),sides=parseInt(m[2]),mod=parseInt(m[3]||'0');
+    if(n>20)n=20;
+    var rolls=[],sum=0;
+    for(var i=0;i<n;i++){var r=Math.floor(Math.random()*sides)+1;rolls.push(r);sum+=r;}
+    var total=sum+mod;
+    var txt=who+' rolls '+expr+': ['+rolls.join(', ')+']'+(mod?(mod>0?' +':' ')+mod:'')+' = '+total;
+    addLine('<span class="roll">⚂ '+esc(txt)+'</span>',txt,'');
+  }else{
+    addLine('<span class="fail">// Unknown command. Type /help //</span>','// unknown command //','');
+  }
+}
+
+function doCoreRoll(who,a,s,p){
+  var die=d10();
+  var total=die+a+s+p;
+  var flavor=die===10?' <span class="crit">— MAX DIE!</span>':(die===1?' <span class="fail">— rough one.</span>':'');
+  var txt=who+' CORE ROLL: 1d10('+die+') + Attr '+a+' + Skill '+s+' + Power '+p+' = '+total;
+  addLine('<span class="roll">⚂ '+esc(txt)+'</span>'+flavor,txt,'');
+}
+function coreRoll(){
+  var who=document.getElementById('speaker').value;
+  var a=parseInt(document.getElementById('dAttr').value)||0;
+  var s=parseInt(document.getElementById('dSkill').value)||0;
+  var p=parseInt(document.getElementById('dPower').value)||0;
+  doCoreRoll(who,a,s,p);
+}
+function exportLog(){
+  var blob=new Blob([logLines.join('\n')],{type:'text/plain'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='aegis-session-log.txt';
+  a.click();
+}
+function clearLog(){
+  if(!confirm('Clear the session log?'))return;
+  term.innerHTML='';logLines=[];
+  addLine('<span class="sys">// LOG CLEARED — CHANNEL STILL OPEN //</span>','// log cleared //','');
+}
+</script>
+</body>
+</html>
