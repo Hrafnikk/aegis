@@ -184,7 +184,8 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
       <tr><td><b>A.E.G.I.S.</b></td><td>Astral Expanse Galactic Interlink System. The overarching military, political, and security authority of the six united galaxies.</td></tr>
       <tr><td><b>P.A.R.A.G.O.N.</b></td><td>Powered Ascendancy Response &amp; Authority Group for Operational Neutralization. The superhuman military branch of A.E.G.I.S.</td></tr>
       <tr><td><b>The Vigilantes</b></td><td>Modern illegal heroes resisting A.E.G.I.S. control and trying to restore free heroism.</td></tr>
-      <tr><td><b>Justice Society of Sovereigns</b></td><td>The old hero team from before the full propaganda era. Broken by A.E.G.I.S. and P.A.R.A.G.O.N.</td></tr>
+      <tr><td><b>Original JSS</b></td><td>The independent Justice Society of Sovereigns — the old hero team from before the full propaganda era. Broken by A.E.G.I.S. and P.A.R.A.G.O.N.</td></tr>
+      <tr><td><b>Modern JSS</b></td><td>The A.E.G.I.S.-sponsored successor to the old Justice Society. It leads P.A.R.A.G.O.N. and wears the old name as a crown of the state.</td></tr>
       <tr><td><b>Zero Ascendancy Policy</b></td><td>A.E.G.I.S. doctrine: no independent superhuman power may rise outside sanctioned authority.</td></tr>
     </table></div>
   </div>
@@ -287,42 +288,140 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
 
 <!-- ============ RULES ============ -->
 <section id="page-rules" class="page">
-  <h2>Resolution Mechanic</h2>
   <div class="panel accent">
-    <p class="mono" style="font-size:1.15rem;color:var(--cyan)">CORE ROLL = 1d10 + Attribute + Skill + Power (if applicable)</p>
+    <span class="tag">AEGIS D10 Core Rulebook — Compilation Edition</span>
+    <p>AEGIS uses ten-sided dice in <b>pools</b>. Ordinary actions roll <b>Attribute + Skill</b> dice. Direct Power actions roll the <b>governing Attribute + Power Rating</b>. When a Power enhances a skilled action, roll Attribute + Skill and apply only the Technique's listed enhancement — do not add the full Power Rating.</p>
+    <p style="color:var(--text-dim);font-size:.9rem">This page is a quick reference. The complete rulebook (21 chapters: powers, equipment, mass combat, lairs, and more) is on the <b>Downloads</b> page.</p>
+  </div>
+
+  <h2>Core Resolution</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Situation</th><th>Pool</th></tr>
+    <tr><td>Ordinary action</td><td>Attribute + Skill</td></tr>
+    <tr><td>Direct Power action</td><td>Governing Attribute + Power Rating</td></tr>
+    <tr><td>Skilled action enhanced by Power</td><td>Attribute + Skill; Technique adds listed dice, automatic successes, Scale, or effect</td></tr>
+    <tr><td>Opposed action</td><td>Both sides roll; defender wins ties</td></tr>
+    <tr><td>Extended action</td><td>Accumulate final successes toward a threshold</td></tr>
+  </table></div>
+  <h3>Successes, 1s, 10s &amp; Botches</h3>
+  <p>• Natural <b>10s explode</b> recursively — roll another die for each natural 10; new 10s also explode.<br>
+  • A natural <b>1 cancels</b> one success.<br>
+  • A <b>botch</b> occurs when more than half of the original rolled dice show natural 1s. Explosion dice never count toward botch determination, and a 1 on an explosion die cancels a success but cannot create a botch.<br>
+  • Zero or negative pool: roll one <b>desperation die</b> — it botches on 1 and explodes on 10.<br>
+  • Traits above 10: roll a maximum of 10 dice per trait; each full point above 10 becomes one <b>automatic success</b>.</p>
+  <h3>Difficulty Benchmarks</h3>
+  <div class="tblwrap"><table>
+    <tr><th>Difficulty</th><th>Benchmark</th></tr>
+    <tr><td class="mono">1</td><td>Routine task under pressure</td></tr>
+    <tr><td class="mono">2</td><td>Standard trained challenge</td></tr>
+    <tr><td class="mono">3</td><td>Challenging professional action</td></tr>
+    <tr><td class="mono">5</td><td>Exceptional specialist achievement</td></tr>
+    <tr><td class="mono">7</td><td>Legendary achievement</td></tr>
+    <tr><td class="mono">10+</td><td>Planetary, civilization-scale, or seemingly impossible</td></tr>
+  </table></div>
+  <p>Opposed rolls: net successes = attacker's final successes minus defender's. One or more net successes wins; defender wins ties. <b>5+ net successes is a Critical Success.</b> Ordinary modifiers cap at +5/−5; Teamwork dice cap at +5 separately (helpers with 2+ final successes grant the leader +1 die each).</p>
+  </div>
+
+  <h2>Willpower</h2>
+  <div class="panel">
+    <p>Maximum Willpower = <b>Resolve + Composure</b>. One Willpower per roll; normally one on your own turn plus one on a Reaction before your next turn. Spend it to: add <b>+3 dice</b> before a roll · reroll up to three failed dice after a roll · resist compulsion, emotion, a defining Flaw, or a prohibited command · remain conscious or active one turn · reroll a failed Strain-control test · ignore wound penalties until next turn. A Short Rest restores 1 Willpower; a Full Rest restores all.</p>
+  </div>
+
+  <h2>Combat Basics</h2>
+  <div class="panel">
+    <p>A round is ~6 seconds. Per round: one <b>Standard</b>, one <b>Movement</b>, one <b>Minor</b>, one <b>Reaction</b>, and reasonable Free Actions. Repeated attacks on your own turn take −3 / −6 / −9 exceptional penalties for the second, third, and fourth attacks.</p>
     <div class="tblwrap"><table>
-      <tr><th>Element</th><th>Rule</th></tr>
-      <tr><td><b>Attributes</b></td><td>Physical, Mental, Social.</td></tr>
-      <tr><td><b>Skill Range</b></td><td>Normally 0–5. Some characters have overcap specialties (e.g., Harbinger Pain Tolerance 7, Kitsune Tech 6).</td></tr>
-      <tr><td><b>XP Costs</b></td><td>Attributes: 5 XP per dot. Skills: 3 XP per new dot. Powers: 10 XP per new dot.</td></tr>
+      <tr><th>Range Band</th><th>Distance</th></tr>
+      <tr><td>Engaged</td><td>0–10 feet</td></tr>
+      <tr><td>Near</td><td>10–100 feet</td></tr>
+      <tr><td>Far</td><td>100–500 feet</td></tr>
+      <tr><td>Extreme</td><td>500 feet–2 miles</td></tr>
+      <tr><td>Strategic</td><td>Beyond Extreme</td></tr>
+    </table></div>
+    <p>Damage sequence: declare → build attack &amp; defense → roll and count net successes → Raw Damage = Base Damage + net + Critical benefit → apply Protection and AP → apply resistance/vulnerability/immunity/Scale → apply Health/Conditions → pay resources and resolve Strain.</p>
+  </div>
+
+  <h2>Attributes</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Category</th><th>Attributes</th></tr>
+    <tr><td><b>Physical</b></td><td>Strength, Dexterity, Stamina</td></tr>
+    <tr><td><b>Mental</b></td><td>Intelligence, Wits, Resolve</td></tr>
+    <tr><td><b>Social</b></td><td>Charisma, Manipulation, Composure</td></tr>
+  </table></div>
+  <p style="color:var(--text-dim);font-size:.9rem">Every Attribute begins at 1. Category allocations add bonus dots; species bonuses apply after. A favored racial Attribute may exceed the Tier cap by 1.</p></div>
+
+  <h2>Skills — 29 Fields of Training</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Physical &amp; Combat</th><th>Mental &amp; Technical</th><th>Social</th></tr>
+    <tr><td>Athletics</td><td>Awareness</td><td>Persuasion</td></tr>
+    <tr><td>Brawl</td><td>Investigation</td><td>Deception</td></tr>
+    <tr><td>Melee</td><td>Medicine</td><td>Intimidation</td></tr>
+    <tr><td>Firearms</td><td>Technology</td><td>Leadership</td></tr>
+    <tr><td>Heavy Weapons</td><td>Engineering</td><td>Empathy</td></tr>
+    <tr><td>Stealth</td><td>Demolitions</td><td>Etiquette</td></tr>
+    <tr><td>Larceny</td><td>Science</td><td>Performance</td></tr>
+    <tr><td>Piloting</td><td>Academics</td><td>Streetwise</td></tr>
+    <tr><td>Survival</td><td>Occult</td><td></td></tr>
+    <tr><td></td><td>Aethercraft</td><td></td></tr>
+    <tr><td></td><td>Xenology</td><td></td></tr>
+    <tr><td></td><td>Strategy</td><td></td></tr>
+  </table></div>
+  <p style="color:var(--text-dim);font-size:.9rem">Skill 0 may attempt most ordinary uses on Attribute alone; professional tasks untrained suffer −2 dice. Specialization slots unlock at Skill 4, 6, 8, and 10; a relevant Specialization grants +1 die.</p></div>
+
+  <h2>Character Creation</h2>
+  <div class="panel">
+    <p>Sequence: concept, allegiance &amp; Tier → species and Lineage/Heritage → Attribute categories → species adjustments → Skills &amp; Specializations → Powers, Branches, Techniques → Merits &amp; optional Flaws → Backgrounds → equipment → Reputation &amp; Threat Classification → derived traits → final legality audit.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Tier</th><th>Attributes P/S/T</th><th>Attr Cap</th><th>Skills</th><th>Skill Cap</th><th>PP</th><th>Max Power</th><th>Merits</th><th>EP</th></tr>
+      <tr><td>Civilian</td><td class="mono">6/4/2</td><td class="mono">4</td><td class="mono">20</td><td class="mono">4</td><td class="mono">0–3</td><td class="mono">3</td><td class="mono">4</td><td class="mono">3</td></tr>
+      <tr><td>Enhanced</td><td class="mono">9/6/3</td><td class="mono">5</td><td class="mono">28</td><td class="mono">5</td><td class="mono">8</td><td class="mono">4</td><td class="mono">6</td><td class="mono">5</td></tr>
+      <tr><td>Street</td><td class="mono">12/8/4</td><td class="mono">6</td><td class="mono">36</td><td class="mono">6</td><td class="mono">15</td><td class="mono">6</td><td class="mono">8</td><td class="mono">7</td></tr>
+      <tr><td>Standard</td><td class="mono">15/10/5</td><td class="mono">8</td><td class="mono">44</td><td class="mono">7</td><td class="mono">24</td><td class="mono">8</td><td class="mono">10</td><td class="mono">9</td></tr>
+      <tr><td>PARAGON</td><td class="mono">18/12/6</td><td class="mono">10</td><td class="mono">52</td><td class="mono">8</td><td class="mono">36</td><td class="mono">10</td><td class="mono">12</td><td class="mono">12</td></tr>
+      <tr><td>JSS</td><td class="mono">22/15/8</td><td class="mono">12</td><td class="mono">60</td><td class="mono">9</td><td class="mono">52</td><td class="mono">12</td><td class="mono">14</td><td class="mono">15</td></tr>
+      <tr><td>Planetary</td><td class="mono">27/18/9</td><td class="mono">13</td><td class="mono">68</td><td class="mono">10</td><td class="mono">70</td><td class="mono">13</td><td class="mono">16</td><td class="mono">18</td></tr>
+      <tr><td>Interstellar</td><td class="mono">31/21/11</td><td class="mono">14</td><td class="mono">76</td><td class="mono">10</td><td class="mono">90</td><td class="mono">14</td><td class="mono">18</td><td class="mono">22</td></tr>
+      <tr><td>Cosmic</td><td class="mono">36/24/12</td><td class="mono">15</td><td class="mono">84</td><td class="mono">10</td><td class="mono">120</td><td class="mono">15</td><td class="mono">22</td><td class="mono">28</td></tr>
     </table></div>
   </div>
 
-  <h2>Skill List</h2>
+  <h2>Derived Traits</h2>
   <div class="panel"><div class="tblwrap"><table>
-    <tr><th>Physical Skills</th><th>Mental Skills</th><th>Social Skills</th></tr>
-    <tr><td>Brawl</td><td>Investigation</td><td>Deception</td></tr>
-    <tr><td>Firearms</td><td>Tactics</td><td>Intimidation</td></tr>
-    <tr><td>Athletics</td><td>Tech</td><td>Persuasion</td></tr>
-    <tr><td>Reflex</td><td>Medicine</td><td>Fame</td></tr>
-    <tr><td>Endurance</td><td>Awareness</td><td>Insight</td></tr>
+    <tr><th>Trait</th><th>Formula</th></tr>
+    <tr><td>Health</td><td class="mono">10 + Stamina ×2 + Size ×2 (min 3)</td></tr>
+    <tr><td>Willpower</td><td class="mono">Resolve + Composure</td></tr>
+    <tr><td>Power Reserve</td><td class="mono">Resolve + Tier Reserve Base</td></tr>
+    <tr><td>Strain Limit</td><td class="mono">Stamina + Resolve</td></tr>
+    <tr><td>Initiative</td><td class="mono">Wits + Dexterity</td></tr>
+    <tr><td>Speed</td><td class="mono">5 + Dexterity + Size (min 1)</td></tr>
+    <tr><td>Evasion</td><td class="mono">Dexterity + Athletics + Size mod</td></tr>
+    <tr><td>Parry</td><td class="mono">Dexterity + Melee + weapon/Technique</td></tr>
+    <tr><td>Block</td><td class="mono">Stamina + Athletics + Size mod + shield/Technique</td></tr>
+    <tr><td>Mental Defense</td><td class="mono">Resolve + Composure</td></tr>
+    <tr><td>Social Defense</td><td class="mono">Composure + Wits</td></tr>
+    <tr><td>Passive Awareness</td><td class="mono">(Wits + Awareness) ÷ 3, rounded up (min 1)</td></tr>
   </table></div></div>
 
-  <h2>Character Advancement</h2>
+  <h2>Playable Species</h2>
   <div class="panel">
-    <div class="tblwrap"><table>
-      <tr><th>Purchase</th><th>Cost</th></tr>
-      <tr><td>Attribute dot</td><td class="mono">5 XP</td></tr>
-      <tr><td>New skill dot</td><td class="mono">3 XP</td></tr>
-      <tr><td>New power dot</td><td class="mono">10 XP</td></tr>
-    </table></div>
-    <p style="color:var(--text-dim);font-size:.9rem">Overcap specialties beyond skill 5 exist for exceptional characters at GM discretion.</p>
+    <p><b>Humans</b> (adaptable, Human Potential), <b>Wargs</b> (choose a Lineage Module: Lupine, Reptilian, Avian, Aquarian, Sapian, Ursine, Regalius, Fox, Coyote, Jackal, Falcon, Owl, Corax, Cobra, Frog, Tortoise, Gecko, Whale, Tiger, Jaguar, Dragon, and more), <b>Graven</b> (stone-metal memory keepers), <b>Mycelyth</b> (fungal collective), <b>Brightons</b> (living starlight), and <b>Alder</b> (ancient cosmic intellects).</p>
+    <p>A standard species package: +3 Attribute total (max +2 to one), +1 Skill, one Specialization, two favored caps, one free racial Power at rating 1, three racial Merits, and three mandatory racial Flaws.</p>
+    <p style="color:var(--red)"><b>Kurathi are not a standard player species.</b> Mythos is the sole playable exception unless future canon explicitly changes that restriction.</p>
+  </div>
+
+  <h2>Powers &amp; the Aether Mysteries</h2>
+  <div class="panel">
+    <p><b>Power Catalogue:</b> Super Strength, Super Endurance, Flight, Super Speed, Regeneration, Telekinesis, Telepathy, Energy Projection, Energy Manipulation, Shapeshifting, Invisibility, Force Fields, Weather Control, Technopathy, Biomass Ascension, Aether Weaving, and Reality Authority — each with Branches, Techniques, Refinements, and Signature upgrades.</p>
+    <p><b>The Eight Aether Mysteries:</b> Font, Shaping, Mind, Seer, Life, Soul, Gate, and Arbiter.</p>
+    <p style="color:var(--text-dim);font-size:.9rem">Technique tiers run Minor → Standard → Strong → Major → Grand → Ultimate → Cosmic. Full rules, costs, and catalogues are in the Core Rulebook on the Downloads page.</p>
   </div>
 
   <h2>Canon Corrections</h2>
   <div class="panel">
+    <p>• <b>"JSA" is not a valid term</b> in this setting. The original JSS was the independent Justice Society of Sovereigns; the modern JSS is the A.E.G.I.S.-sponsored successor that leads P.A.R.A.G.O.N.</p>
     <p>• A.E.G.I.S. is <b>not</b> ARGOS. ARGOS is an old draft term, intelligence error, or discarded file name unless intentionally reintroduced as an outdated codename.</p>
     <p>• Harbinger does <b>not</b> have true phasing. Any apparent phasing is shadow-based displacement known as <b>Shadow-Slip</b>.</p>
+    <p>• Kurathi remain excluded from standard player species; Mythos is the sole exception.</p>
   </div>
 </section>
 
@@ -451,7 +550,7 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
 <section id="page-play" class="page">
   <h2>Play Terminal</h2>
   <div class="panel accent">
-    <p style="margin-bottom:.4rem">Text-based play space for the table. Pick who's speaking, narrate in text, and roll the core mechanic (<span class="mono" style="color:var(--cyan)">1d10 + Attribute + Skill + Power</span>). Export the session log when you're done.</p>
+    <p style="margin-bottom:.4rem">Text-based play space for the table. Pick who's speaking, narrate in text, and roll AEGIS D10 dice pools (<span class="mono" style="color:var(--cyan)">Attribute + Skill</span> or <span class="mono" style="color:var(--cyan)">Attribute + Power</span>). 10s explode, 1s cancel successes. Export the session log when you're done.</p>
   </div>
   <div id="terminal"></div>
   <div class="playrow">
@@ -471,17 +570,18 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
     <button onclick="submitLine()">Send</button>
   </div>
   <div class="dicebar">
-    <label>ATTRIBUTE <input type="number" id="dAttr" value="0" min="0" max="10"></label>
-    <label>SKILL <input type="number" id="dSkill" value="0" min="0" max="10"></label>
-    <label>POWER <input type="number" id="dPower" value="0" min="0" max="10"></label>
-    <button class="btn" onclick="coreRoll()">⚂ Core Roll</button>
+    <label>ATTRIBUTE <input type="number" id="dAttr" value="0" min="0" max="15"></label>
+    <label>SKILL/POWER <input type="number" id="dSkill" value="0" min="0" max="15"></label>
+    <label>AUTO SUCC <input type="number" id="dAuto" value="0" min="0" max="20"></label>
+    <button class="btn" onclick="poolRoll()">⚂ Roll Pool</button>
     <button class="btn ghost" onclick="exportLog()">Export Log</button>
     <button class="btn ghost" onclick="clearLog()">Clear</button>
   </div>
   <div class="help">
-    <b>/roll d10+3</b> — quick roll with flat modifier &nbsp;·&nbsp; <b>/roll 2d10</b> — multiple dice &nbsp;·&nbsp;
-    <b>/core 3 2 4</b> — core roll with attribute 3, skill 2, power 4 &nbsp;·&nbsp;
+    <b>/pool 7</b> — roll a 7-die pool &nbsp;·&nbsp; <b>/pool 7 2</b> — 7 dice + 2 automatic successes &nbsp;·&nbsp;
+    <b>/roll 2d10</b> — plain dice &nbsp;·&nbsp;
     <b>/scene Rooftop, rain, sirens below</b> — set a scene marker &nbsp;·&nbsp; <b>/help</b> — show commands.<br>
+    Pool rules: success on 8–10, natural 10s explode recursively, natural 1s cancel successes, botch when over half the original dice show 1s. Max 10 rolled dice per trait — points above 10 are automatic successes.<br>
     Log lives in this browser tab — export it before closing to save your session.
   </div>
 </section>
@@ -490,13 +590,17 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
 <section id="page-downloads" class="page">
   <h2>Print &amp; Play — Downloads</h2>
   <div class="panel accent"><p>Print-ready files for your table. Keep these in the same folder as this website for the links to work, or grab them wherever you host the site.</p></div>
+  <a class="dl" href="AEGIS_D10_Core_Rulebook.pdf" download>
+    <span class="icon">PDF</span>
+    <span class="info"><b>D10 Core Rulebook — Compilation Edition</b><p>The complete rules: character creation, species, powers, combat, equipment, mass warfare, lairs, and more. 21 chapters.</p></span>
+  </a>
   <a class="dl" href="AEGIS_Character_Sheet.pdf" download>
     <span class="icon">PDF</span>
-    <span class="info"><b>Blank Character Sheet</b><p>Attributes, skills, powers, merits &amp; flaws, XP tracking. Print one per player.</p></span>
+    <span class="info"><b>Blank Character Sheet</b><p>Nine attributes, 29 skills, powers, merits &amp; flaws, derived traits. Print one per player.</p></span>
   </a>
   <a class="dl" href="AEGIS_Quick_Rules_Reference.pdf" download>
     <span class="icon">PDF</span>
-    <span class="info"><b>Quick Rules Reference</b><p>The core roll, skill list, and XP costs on one page. Print for the middle of the table.</p></span>
+    <span class="info"><b>Quick Rules Reference</b><p>Dice pools, difficulty benchmarks, core formulas, and action economy on one page. Print for the middle of the table.</p></span>
   </a>
   <a class="dl" href="AEGIS_Player_Handout_JSS.pdf" download>
     <span class="icon">PDF</span>
@@ -566,13 +670,13 @@ function handleCommand(text,who){
   var parts=text.split(/\s+/);
   var cmd=parts[0].toLowerCase();
   if(cmd==='/help'){
-    addLine('<span class="sys">/roll d10+N — quick roll · /roll XdY — dice pool · /core A S P — 1d10+Attr+Skill+Power · /scene description — scene marker · /help</span>','// help //','');
+    addLine('<span class="sys">/pool N — roll N-die pool · /pool N A — N dice + A auto successes · /roll XdY+Z — plain dice · /scene description — scene marker · /help</span>','// help //','');
   }else if(cmd==='/scene'){
     var sc=text.slice(6).trim()||'(untitled scene)';
     addLine('<span class="sys">═══ SCENE: '+esc(sc).toUpperCase()+' ═══</span>','=== SCENE: '+sc+' ===','');
-  }else if(cmd==='/core'){
-    var a=parseInt(parts[1]||0)||0,s=parseInt(parts[2]||0)||0,p=parseInt(parts[3]||0)||0;
-    doCoreRoll(who,a,s,p);
+  }else if(cmd==='/pool'||cmd==='/core'){
+    var n=parseInt(parts[1]||0)||0,auto=parseInt(parts[2]||0)||0;
+    doPoolRoll(who,n,auto);
   }else if(cmd==='/roll'){
     var expr=(parts[1]||'d10').toLowerCase();
     var m=expr.match(/^(\d*)d(\d+)([+-]\d+)?$/);
@@ -589,19 +693,44 @@ function handleCommand(text,who){
   }
 }
 
-function doCoreRoll(who,a,s,p){
-  var die=d10();
-  var total=die+a+s+p;
-  var flavor=die===10?' <span class="crit">— MAX DIE!</span>':(die===1?' <span class="fail">— rough one.</span>':'');
-  var txt=who+' CORE ROLL: 1d10('+die+') + Attr '+a+' + Skill '+s+' + Power '+p+' = '+total;
+function doPoolRoll(who,n,auto){
+  auto=auto||0;
+  if(n>10){auto+=n-10;n=10;} // trait cap: points above 10 become automatic successes
+  if(n<=0){
+    // desperation die: botch on 1, explodes on 10
+    var dd=d10(),dsucc=0,dbotch=(dd===1),extra=[];
+    if(dd>=8)dsucc++;
+    var e=dd;
+    while(e===10){e=d10();extra.push(e);if(e>=8)dsucc++;}
+    dsucc+=auto;
+    var dt=who+' DESPERATION DIE: ['+dd+(extra.length?' → '+extra.join(', '):'')+']'+(auto?' +'+auto+' auto':'')+' = '+dsucc+' success'+(dsucc===1?'':'es')+(dbotch?' — BOTCH!':'');
+    addLine('<span class="roll">⚂ '+esc(dt)+'</span>'+(dbotch?' <span class="fail">BOTCH</span>':''),dt,'');
+    return;
+  }
+  var orig=[],expl=[],succ=0,ones=0;
+  for(var i=0;i<n;i++){
+    var r=d10();orig.push(r);
+    if(r>=8)succ++;
+    if(r===1)ones++;
+    var x=r;
+    while(x===10){x=d10();expl.push(x);if(x>=8)succ++;}
+  }
+  // natural 1s cancel successes (explosion 1s cancel too but never botch)
+  var cancel=ones+expl.filter(function(v){return v===1}).length;
+  var final=Math.max(0,succ-cancel)+auto;
+  var botch=ones>n/2;
+  var txt=who+' POOL '+n+'d10'+(auto?' +'+auto+' auto':'')+': ['+orig.join(', ')+']'+(expl.length?' explode → ['+expl.join(', ')+']':'')+' = '+final+' success'+(final===1?'':'es');
+  var flavor='';
+  if(botch){txt+=' — BOTCH!';flavor=' <span class="fail">BOTCH</span>';}
+  else if(final>=5){flavor=' <span class="crit">— CRITICAL territory (5+ net wins big)</span>';}
   addLine('<span class="roll">⚂ '+esc(txt)+'</span>'+flavor,txt,'');
 }
-function coreRoll(){
+function poolRoll(){
   var who=document.getElementById('speaker').value;
   var a=parseInt(document.getElementById('dAttr').value)||0;
   var s=parseInt(document.getElementById('dSkill').value)||0;
-  var p=parseInt(document.getElementById('dPower').value)||0;
-  doCoreRoll(who,a,s,p);
+  var auto=parseInt(document.getElementById('dAuto').value)||0;
+  doPoolRoll(who,a+s,auto);
 }
 function exportLog(){
   var blob=new Blob([logLines.join('\n')],{type:'text/plain'});
