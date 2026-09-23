@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
   <button class="tab" data-page="setting">The Setting</button>
   <button class="tab" data-page="rules">Rules</button>
   <button class="tab" data-page="dossiers">Dossiers</button>
-  <button class="tab" data-page="missions">Mission Board</button>
+  <button class="tab" data-page="missions">Campaign</button>
   <button class="tab" data-page="play">Play</button>
   <button class="tab" data-page="downloads">Downloads</button>
   <button id="gmToggle" onclick="toggleGM()">GM MODE: OFF</button>
@@ -168,221 +168,290 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
     <h1>A.E.G.I.S.</h1>
     <div class="sub">Astral Expanse Galactic Interlink System</div>
     <div class="year">// YEAR 3025 // SIX GALAXIES // ONE AUTHORITY //</div>
-    <div class="propaganda">A.E.G.I.S. PUBLIC BROADCAST: <b>Independent heroism is terrorism.</b> Report unsanctioned power. Trust P.A.R.A.G.O.N. Trust order. Trust A.E.G.I.S.</div>
+    <div class="propaganda">A.E.G.I.S. PUBLIC BROADCAST: <b>Independent heroism is terrorism.</b> Report unsanctioned power. Trust P.A.R.A.G.O.N. Trust the JSS. Trust A.E.G.I.S.</div>
   </div>
 
   <div class="panel accent">
-    <span class="tag">Core Premise</span>
-    <p>A.E.G.I.S. is a superhero science-fantasy tabletop setting about a universe where state-controlled order has replaced independent heroism. The multiverse collapsed into a single Prime Universe. In the aftermath, six galaxies unified for survival — but the emergency authority that saved civilization refused to give power back.</p>
-    <p>The central conflict is not simply heroes versus villains. It is <b style="color:var(--cyan)">heroism versus militarized control</b>. A.E.G.I.S. teaches that independent heroes are terrorists. The Vigilantes believe A.E.G.I.S. has turned protection into obedience and hope into propaganda.</p>
+    <span class="tag">Player Introduction</span>
+    <p>The year is 3025. Fifty years ago, the multiverse collapsed toward a single universe. Galaxies united to survive. The authority created to save them never gave its power back.</p>
+    <p>A.E.G.I.S. calls independent heroes a threat. P.A.R.A.G.O.N. supplies the sanctioned answer. The old Justice Society of Sovereigns was destroyed in a war the whole civilization watched, and most people know only the version the victors broadcast.</p>
+    <p>You live among people who remember another story. Some carry powers inherited from bloodlines or distant stars. Others built their strength, learned forbidden arts, or survived something designed to make them a weapon. A few still try to help people without asking permission.</p>
+    <p style="color:var(--cyan);font-weight:600">Every operation asks more than whether you can beat the enemy. Who gets out alive? Who holds the evidence? What do the people you rescue believe afterward? How much of yourself will you risk to keep someone else free?</p>
   </div>
 
   <div class="panel">
     <span class="tag">Factions</span>
     <div class="tblwrap"><table>
-      <tr><th>Faction</th><th>Description</th></tr>
-      <tr><td><b>A.E.G.I.S.</b></td><td>Astral Expanse Galactic Interlink System. The overarching military, political, and security authority of the six united galaxies.</td></tr>
-      <tr><td><b>P.A.R.A.G.O.N.</b></td><td>Powered Ascendancy Response &amp; Authority Group for Operational Neutralization. The superhuman military branch of A.E.G.I.S.</td></tr>
-      <tr><td><b>The Vigilantes</b></td><td>Modern illegal heroes resisting A.E.G.I.S. control and trying to restore free heroism.</td></tr>
-      <tr><td><b>Original JSS</b></td><td>The independent Justice Society of Sovereigns — the old hero team from before the full propaganda era. Broken by A.E.G.I.S. and P.A.R.A.G.O.N.</td></tr>
-      <tr><td><b>Modern JSS</b></td><td>The A.E.G.I.S.-sponsored successor to the old Justice Society. It leads P.A.R.A.G.O.N. and wears the old name as a crown of the state.</td></tr>
-      <tr><td><b>Zero Ascendancy Policy</b></td><td>A.E.G.I.S. doctrine: no independent superhuman power may rise outside sanctioned authority.</td></tr>
+      <tr><th>Faction</th><th>Wants</th><th>What it can offer or threaten</th></tr>
+      <tr><td><b>A.E.G.I.S.</b></td><td>Stable, sanctioned control</td><td>Law, legitimacy, military response, imprisonment, and propaganda. Combines government, military command, intelligence, and control of superhuman power.</td></tr>
+      <tr><td><b>P.A.R.A.G.O.N. &amp; the modern JSS</b></td><td>Enforce powered authority</td><td>Hero access, coercion, deployments, surveillance — and potential defectors. P.A.R.A.G.O.N. is the superhuman military branch; the modern JSS is its A.E.G.I.S.-sponsored heroic leadership.</td></tr>
+      <tr><td><b>The Quiet Rebellion</b></td><td>Restore independent heroism</td><td>Rescue, hidden networks, testimony, and dangerous trust. The Vigilantes' strategy: gather evidence, recruit doubting heroes, protect defectors, expose lies before open war.</td></tr>
+      <tr><td><b>Vanguard</b></td><td>—</td><td>The current vigilante affiliation associated with Vendetta and Harbinger.</td></tr>
+      <tr><td><b>Wolf Dominion</b></td><td>Preserve Lupine supremacy</td><td>House pressure, biological caste, force, and A.E.G.I.S. backing.</td></tr>
+      <tr><td><b>House IX</b></td><td>Protect its royal order during crisis</td><td>Marriage politics, access, martial power, and divided family loyalties.</td></tr>
+      <tr><td><b>Alder authorities</b></td><td>Preserve bloodline and prophetic order</td><td>Aether knowledge, ancient influence, and absolute hybrid persecution.</td></tr>
+      <tr><td><b>Kurathi power centers</b></td><td>Preserve imperial interests</td><td>Technology, warrior force, House obligations, and diplomatic leverage.</td></tr>
+      <tr><td><b>Salem Coven</b></td><td>Survive and protect its autonomy</td><td>Occult knowledge and potential alliance.</td></tr>
     </table></div>
+    <p style="color:var(--text-dim);font-size:.9rem">The <b>original JSS</b> (the independent Justice Society of Sovereigns), the <b>modern JSS</b> (the A.E.G.I.S.-sponsored institution), and the <b>JSS capability tier</b> are three distinct things. A character can possess JSS-level power while fighting against the institution that uses the same name.</p>
   </div>
 
   <div class="panel">
-    <span class="tag amber">Running Tone</span>
-    <p>The setting should feel like <b>superhero myth after the state won</b>. A.E.G.I.S. is not cartoon evil — it saved civilization, then used that victory to justify permanent control. The Vigilantes are not clean heroes — they bleed, kill, argue, and break laws, but they protect people directly. Old heroes are not nostalgia only: their choices, sins, and betrayals are still alive.</p>
+    <span class="tag amber">The Campaign's Central Pressures</span>
+    <p><b>Protection and control.</b> A.E.G.I.S. can point to real disasters and dangerous superhumans. The Vigilantes must show that another way of protecting people can work.</p>
+    <p><b>Legacy and ownership.</b> The state claims the JSS legacy. Boom's example, the original Clockwork Angel's sacrifice, Atomica's preservation of Mercy, and Mastermind's survival give the resistance a different inheritance.</p>
+    <p><b>Bloodline and identity.</b> Warg lineage, Alder persecution, and Kurathi imperial honor shape lives and threaten outsiders.</p>
+    <p><b>Power and consequence.</b> Extraordinary powers have boundaries. Victory can leave prisoners, damaged ley lines, displaced civilians, lost equipment, or an injured witness who still needs protection.</p>
     <p style="color:var(--cyan);font-weight:600">The core question: Who gets to decide whether power is a curse, a weapon, a crime, or a gift?</p>
   </div>
 </section>
 
 <!-- ============ SETTING ============ -->
 <section id="page-setting" class="page">
-  <h2>Timeline &amp; Major History</h2>
+  <h2>History of the Prime Universe</h2>
+  <div class="panel">
+    <h3>The Prime Convergence</h3>
+    <p>Roughly fifty years before the current campaign, the multiverse collapsed toward a single Prime Universe. Reality tore open. Populations crossed boundaries that had previously separated entire universes. Variants, displaced peoples, unfamiliar powers, and physical anomalies became part of ordinary survival — and gave governments a reason to fear poorly understood power.</p>
+    <h3>The Unity War and Permanent Emergency</h3>
+    <p>The galaxies united to survive. A.E.G.I.S. emerged as central command during the Unity War. When survival gave way to stability, emergency authority remained. Superhuman force became a military resource; the <b>Zero Ascendancy Policy</b> prohibits independent superhuman power from rising outside sanctioned authority.</p>
+    <h3>The Fall of the Original JSS</h3>
+    <p>About twenty-five years ago, the Justice Society of Sovereigns refused A.E.G.I.S. authority. The Sovereign Uprising became the <b>Broadcast War</b> — a public confrontation transmitted across the six galaxies, with the heroes framed as enemies of peace. The broadcast concealed what the heroes were protecting. Boom defended evacuation corridors while suppression weakened him. Young Vendetta witnessed a death that would shape his life. The team did not meet a single uniform fate: some died, some survived captivity, some were erased from public memory.</p>
+    <h3>The Propaganda Era</h3>
+    <p>The modern A.E.G.I.S.-sponsored JSS occupies the public place once held by independent heroes and leads P.A.R.A.G.O.N. An honest sanctioned hero can still serve an institution that lies about its founding violence. The rebellion therefore needs more than victories: it needs witnesses who can survive disclosure, evidence that cannot be easily dismissed, and places where defectors can stay alive.</p>
+  </div>
+
   <div class="panel"><div class="tblwrap"><table>
-    <tr><th>Event</th><th>Timeframe</th><th>Canon Summary</th></tr>
-    <tr><td><b>The Prime Convergence</b></td><td>50 years ago</td><td>The multiverse collapsed toward a single Prime Universe. Reality tore open, populations were displaced, variants appeared, new powers emerged, and physics anomalies spread.</td></tr>
-    <tr><td><b>The Unity War</b></td><td>After Convergence</td><td>Multiple galaxies unified for survival. A.E.G.I.S. began as a temporary central command authority and became permanent.</td></tr>
-    <tr><td><b>The Shift</b></td><td>After stability returned</td><td>A.E.G.I.S. did not relinquish power. It militarized superhumans, created P.A.R.A.G.O.N., and enforced the Zero Ascendancy Policy.</td></tr>
-    <tr><td><b>The Sovereign Uprising</b></td><td>25 years ago</td><td>The Justice Society of Sovereigns refused A.E.G.I.S. authority and demanded freedom for superhumans.</td></tr>
-    <tr><td><b>The Broadcast War</b></td><td>25 years ago</td><td>The confrontation was streamed across all six galaxies. Heroes were killed, captured, or publicly broken. A.E.G.I.S. framed them as threats to peace.</td></tr>
-    <tr><td><b>The Propaganda Era</b></td><td>Current era</td><td>Independent heroes are taught as terrorists. A.E.G.I.S. is taught as peacekeeper. P.A.R.A.G.O.N. is taught as protector of order.</td></tr>
-    <tr class="spoiler"><td><b>The Sovereign Return</b></td><td>Current campaign</td><td>The Vigilantes saved Sovereign. ThunderBringer joined them. Their plan is to turn heroes against A.E.G.I.S. slowly and carefully.</td></tr>
+    <tr><th>Period or Event</th><th>Established Position</th></tr>
+    <tr><td><b>Alder Wasting Disease</b></td><td>Afflicting the species for roughly 3,000 years.</td></tr>
+    <tr><td><b>Wolf Dominion</b></td><td>Lotgar's regime dates back roughly 105 years in Warg history; A.E.G.I.S. backs its present power.</td></tr>
+    <tr><td><b>Prime Convergence</b></td><td>Roughly 50 years before the current campaign.</td></tr>
+    <tr><td><b>Unity War &amp; consolidation</b></td><td>Followed the Convergence; A.E.G.I.S. retained emergency authority.</td></tr>
+    <tr><td><b>Sovereign Uprising &amp; Broadcast War</b></td><td>Roughly 25 years before the current campaign.</td></tr>
+    <tr><td><b>White Seraph leaves House IX</b></td><td>Approximately 20 years ago.</td></tr>
+    <tr><td><b>Present</b></td><td>Campaign year 3025; the Quiet Rebellion is active.</td></tr>
   </table></div></div>
 
   <h2>The Six Galaxies</h2>
   <div class="panel"><div class="tblwrap"><table>
-    <tr><th>Galaxy</th><th>Primary Association</th><th>Notes</th></tr>
-    <tr><td><b>Solarium Prime</b></td><td>Central authority</td><td>Political and military hub of A.E.G.I.S. Bright, public-facing, and propaganda-heavy.</td></tr>
-    <tr><td><b>Ferox Veil</b></td><td>Wargs</td><td>Home sphere of Warg hierarchy, the Wolf Dominion, and major biological-destiny doctrine.</td></tr>
-    <tr><td><b>Eldrasyl Veil</b></td><td>Alder</td><td>Ancient, refined, cosmic, arcane, intellectual, and secretive.</td></tr>
-    <tr><td><b>Helion Verge</b></td><td>Brightons</td><td>Marked by the dying Brighton home star system, exile, fading light, and refugee dynamics.</td></tr>
-    <tr><td><b>Mycelara Depths</b></td><td>Mycelyth</td><td>Fungal collective civilization with vast underground and subspace networks.</td></tr>
-    <tr><td><b>Graven Hyld</b></td><td>Graven</td><td>Ancient stone-metal civilization of memory cores, ancestors, wars, and living history.</td></tr>
-  </table></div></div>
+    <tr><th>Region</th><th>Association</th><th>Campaign Significance</th></tr>
+    <tr><td><b>Solarium Prime</b></td><td>A.E.G.I.S. central authority</td><td>Government, military command, official spectacle, and the public image of order.</td></tr>
+    <tr><td><b>Ferox Veil</b></td><td>The Wargs and the Wyld</td><td>Seven Great Houses, the Wolf Dominion, lineage politics, and rebellion.</td></tr>
+    <tr><td><b>Eldrasyl Veil</b></td><td>Alder civilization</td><td>Ancient Houses, Aether expertise, political secrecy, and forbidden bloodlines.</td></tr>
+    <tr><td><b>Helion Verge</b></td><td>Brighton homeland and exile</td><td>A dying homeland, threatened energy continuity, and migration toward Alder shelter.</td></tr>
+    <tr><td><b>Mycelara Depths</b></td><td>Mycelyth civilization</td><td>Fungal collective life, deep networks, and distributed identity.</td></tr>
+    <tr><td><b>Graven Hyld</b></td><td>Graven civilization</td><td>Living stone and metal, ancestral memory, and archives carried inside people.</td></tr>
+  </table></div>
+  <p style="color:var(--text-dim);font-size:.9rem">Alder dominion spans two galaxies, collectively called the Eldar's Galaxy. This does not establish a seventh region.</p></div>
 
-  <h2>Species &amp; Power Blocs</h2>
-
+  <h2>Peoples</h2>
   <div class="panel">
-    <h3>Wargs &amp; the Wolf Dominion</h3>
-    <p>Wargs are genetically diverse anthropomorphic beings, each lineage tied to an animal archetype. They are physically superior to baseline humans, naturally inclined toward lineage traits, and socially engineered into rigid roles. The Lupine High Houses govern Warg society across the galaxies, enforce biological destiny, and work directly with A.E.G.I.S. and P.A.R.A.G.O.N. Mutation inside noble wolf houses is viewed as weakness and danger, not evolution.</p>
-    <h3>The IX Royal House</h3>
-    <p>The IX are male Warg princes from a powerful non-wolf royal house — the only non-wolf house holding real power beside the Lupine High Houses. Their numbering ranks power from IX-100 to IX-1, with IX-1 the strongest. Known princes: <b>IX-66</b> and <b>IX-77</b> (IX-66 ranks above IX-77). Core traits: extreme strength, durability, regeneration, royal arrogance, and predatory warrior culture.</p>
-    <div class="gm-note spoiler blockspoiler"><span class="tag red">GM Spoiler</span><br>Key weakness revealed: HellKnight's black hellfire prevents IX regeneration and terrifies them.</div>
+    <h3>Humans</h3>
+    <p>Humans participate at every level, from civilian life to overwhelming superhuman power. A human origin does not imply a low ceiling — Mastermind remains human despite being the strongest psychic ever recorded. Mutation, cosmic inheritance, technology, occult instruction, and experimentation create different counters even when two Powers look similar.</p>
+    <h3>Wargs</h3>
+    <p>A diverse animal-derived people: wolves, leonine chimeras, reptilians, birds, aquatic forms, and more. <b>The Wyld</b> is the civilization; <b>the Wolf Dominion</b> is its present political regime. Biological Lineage and political House are distinct — senses, wings, or natural weapons do not confer nobility, and adoption, conquest, marriage, debt, exile, and alliance can change affiliation without changing biology.</p>
+    <h3>Alder</h3>
+    <p>Alder, Aldar, Eldar, and Elves are the same species. The first spacefaring and conquering species in their history, grown from three ancestral bloodlines (Trolyska, Gar'aske, Umbrsyieg). <b>True-Blood</b> Alder approach seven feet and are functionally immortal, not considered adults until about 100. <b>Engineered</b> Alder average six feet and live roughly a century due to a design flaw. The Wasting Disease means only about one in fifty naturally born children survives the first year. Thirty Houses, five Great Houses, and the Arcane Eight govern — and only True-Bloods debate and vote. The Alder backed A.E.G.I.S. expansion and hold its highest positions. <b>Arska's prophecy of the Dark Prophet</b>, held infallible, justifies absolute prohibition of hybrids.</p>
+    <h3>Brightons</h3>
+    <p>Sentient energy beings whose star system was birthplace, power source, and collective anchor. Their luminous forms shift with emotion. A Brighton's <b>Heartflare</b> is a continuity anchor — destruction of an outer form need not end the person while it survives. Their dying homeland has driven migration to Alder shelter.</p>
+    <h3>Mycelyth</h3>
+    <p>Fungal beings whose networks extend through underground and subspace environments. Shared consciousness does not make them mindless. A colony, spore node, or biomass anchor can carry continuity across bodily destruction — so isolation is more than loneliness, and contamination can threaten more than one body.</p>
+    <h3>Graven</h3>
+    <p>Living stone-and-metal beings sustained by ancient energy and memory cores carrying inherited knowledge, wars, names, and histories. They rely on repair rather than biological healing. Resistant to poison, hunger, disease, and suffocation — but not to corrosion, electricity, pressure, heat, force, or attacks on the memory core.</p>
+    <h3>Kurathi / Kaerathi</h3>
+    <p>Alternate spellings of one species: imperial warrior culture, exceptional physical genetics, regeneration, longevity, flight, kinetic capabilities, gravimetric technology, and noble Houses. <b>Not a standard player species</b> — Mythos is the established playable exception.</p>
+    <h3>Primaris</h3>
+    <p>Sovereign is the last surviving Primaris. Their biology, culture, and wider history remain reserved; there is no playable Primaris template.</p>
+    <div class="gm-note spoiler blockspoiler"><span class="tag red">GM Spoiler — Kitsune &amp; Apparent Ancestry</span><br>Kitsune is publicly classified as an exceptionally rare Fox Warg. Her actual origin lies in another universe; her body reproduces the Fox pattern closely enough to pass ordinary examination. Kitsune identity and Fox Warg lineage must remain distinct in GM notes. She is the last of her kind here.</div>
   </div>
 
+  <h2>The Wyld &amp; the Seven Great Houses</h2>
   <div class="panel">
-    <h3>Alder</h3>
-    <p>Ancient, long-lived humanoids: centuries-to-millennia lifespans, refined intellect, near-perfect physical control, and deep connection to cosmic and arcane forces.</p>
-    <div class="gm-note spoiler blockspoiler"><span class="tag red">GM Spoiler</span><br>The Alder are old enough and perceptive enough to suspect Sovereign may be approximately 2,000 years old. Elegantari is an Alder and the father of Mythos — his forbidden union with Athena is a major secret.</div>
-    <h3>Brightons</h3>
-    <p>Sentient energy-based beings born from a star system that was birthplace, power source, and collective anchor. Semi-corporeal, radiant, luminous, emotionally intense, constantly shifting. Their home galaxy is dying; most survivors have left to join or shelter with the Alder. SunBurst was a Brighton bound to a battle mech — a living star-being turned fast, witty, radiant war machine.</p>
-    <h3>Mycelyth</h3>
-    <p>Fungal-based collective beings with semi-humanoid bodies and vast underground/subspace networks. They share consciousness across distances but are not mindless — a living ecosystem with thought.</p>
-    <h3>Graven</h3>
-    <p>Stone- and metal-bodied beings infused with ancient energy. Each carries memory cores of ancestors, wars, knowledge, and ancient truths. Killing a Graven can destroy a person, a bloodline, and a library of history.</p>
-    <h3>Kurathi / Kaerathi</h3>
-    <p>The same race under different spellings and cultural usage — Kurathi is used for Athena, Enforcer, and the imperial/political context. Genetically perfected warrior beings: superior physical genetics, regeneration, flight, kinetic manipulation, gravimetric weaponry, adaptive warframes, and conquest-driven culture. Their civilization refused full A.E.G.I.S. integration, but Kurathi power centers and Earth government representatives remain important diplomatic players.</p>
+    <p><b>Lotgar the Usurper</b> rules the Wolf Dominion through Great House Lupine. The other Great Houses survive through collaboration, neutrality, and concealed resistance.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Great House</th><th>World</th><th>Political Position</th></tr>
+      <tr><td><b>Lupine</b></td><td>Fenvara</td><td>Ruling wolves under Lotgar, backed by A.E.G.I.S.</td></tr>
+      <tr><td><b>Regalius</b></td><td>Chimerion</td><td>Traditionally noninterfering; contains royal House IX and the noble Leon and Leo families.</td></tr>
+      <tr><td><b>Reptilian</b></td><td>Viperra (formerly Drakara)</td><td>Supports the present order after the persecution and displacement of dragons.</td></tr>
+      <tr><td><b>Avian</b></td><td>Caelora</td><td>Allied with the Wolf Dominion.</td></tr>
+      <tr><td><b>Sapian</b></td><td>Simiara</td><td>Neutral and watchful, waiting for circumstances to change.</td></tr>
+      <tr><td><b>Demeter</b></td><td>Ursakar</td><td>Publicly compliant while secretly supporting rebels.</td></tr>
+      <tr><td><b>Aquarian</b></td><td>Pelagion</td><td>Largely self-governing, but enforces Wolf judgments.</td></tr>
+    </table></div>
+    <h3>The Cost of the Dominion</h3>
+    <p>The Wolf Dominion enforces the idea that biology determines rightful place. Mutation within noble bloodlines is treated as contamination — Lunar Fang's own House tried to kill him over his duplication mutation. Lesser House <b>Fox</b>, the Wyld's storytellers, genealogists, and keepers of memory, was nearly exterminated after resisting the wolves. Drakara's renaming as Viperra accompanied the hunting and enslavement of dragons; fewer than about twelve remain. The Red Lion is associated with the extermination of the Akin.</p>
+    <h3>The Royal House IX</h3>
+    <p>House IX belongs within Great House Regalius, with royal leonine (Chimerian) heritage at its core. Its numbering holds two separate systems — reading them as one ladder creates false claims about status:</p>
+    <div class="tblwrap"><table>
+      <tr><th>System</th><th>Meaning</th><th>Key Reference</th></tr>
+      <tr><td>Female lineage families</td><td>23 hereditary families; IX-23 is historically highest</td><td>Family 23 was later removed.</td></tr>
+      <tr><td>Male Prince positions</td><td>100 earned positions, IX-99 through IX-0 (lower = higher)</td><td>IX-0, also styled IX, is the Red Lion — the highest male position.</td></tr>
+      <tr><td>Marriage designation</td><td>Joins hereditary family with the man's earned designation</td><td>Blue IX-22-55 belongs to Family 22 through marriage.</td></tr>
+    </table></div>
+    <h3>The Current Crisis</h3>
+    <p>A rebel strike killed roughly a dozen IX princesses. House IX recalled its members and moved toward war, temporarily cooperating with the Wolf Dominion. Princess <b>Levea IX-22</b>, White Seraph's younger sister, suspects the massacre was a setup. <b>IX-66</b> is the deceased Prince from the HellKnight confrontation; <b>Fulbritr IX-99</b> blames Harbinger for his death and hunted him in Hong Kong.</p>
+  </div>
+
+  <h2>Alder &amp; Kurathi Power</h2>
+  <div class="panel">
+    <p><b>Enforcer</b> is a Kurathi contract asset working for P.A.R.A.G.O.N. — publicly associated with sanctioned heroism. His existence prevents the assumption that every Kurathi opposes A.E.G.I.S.</p>
+    <p><b>JaxK, called Scourge</b>, is a Kurathi royal heir exiled on Earth for fifty years after destroying his homeworld. A containment ring strips him to baseline Kurathi abilities — strength, durability, healing, longevity, combat instinct — and his powers have begun returning.</p>
+    <div class="gm-note spoiler blockspoiler"><span class="tag red">GM Spoiler — House Tragerous &amp; Mythos</span><br>Athena's birth name is ElenS of House Tragerous; JaxK is her brother. She is ~500 years old and left her imperial home about a century ago. Elegantari (Alder) is Mythos's biological father — a union forbidden by both peoples. Under Arska's prophecy, Mythos's existence is a political and religious threat; exposure risks execution. The prophecy does not identify him as the Dark Prophet. Athena's doctrine, <i>"Emotion destroys worlds,"</i> expresses both protective discipline and the damage of living under it. Enforcer is privately a covert enforcer and hitman.</div>
+  </div>
+
+  <h2>Institutions</h2>
+  <div class="panel">
+    <p><b>General Silver</b> (also Doctor Silver) leads P.A.R.A.G.O.N. and sits on the A.E.G.I.S. Council, holding multiple doctorates and substantial military, scientific, and political authority.</p>
+    <p><b>Blackgate Omega</b> was the most secure superhuman prison in the eastern galaxies; its collapse released 93 inmates and led into the Saint Lazarus crisis. Other black programs imprison, experiment upon, and classify people as assets or property.</p>
+    <p><b>Occult factions:</b> the Salem Coven is a hunted group of mystic heroes and potential ally. The <b>Second Dynasty</b> was Gui Huang's undead imperial project at Fengdu.</p>
+    <p style="color:var(--text-dim);font-size:.9rem">When portraying A.E.G.I.S., distinguish institutions from individuals. A medic, investigator, or loyal young hero may believe sincerely in public protection — this gives the Quiet Rebellion people to persuade, not just installations to destroy.</p>
   </div>
 
   <h2>Relationship Web</h2>
   <div class="panel spoiler blockspoiler">
-    <span class="tag red">GM Spoiler — Story Spines</span>
-    <p><b style="color:var(--cyan)">Emotional Spine:</b> Boom dies protecting civilians. Young Vendetta witnesses it and becomes a rebel against the lie. K becomes Vendetta's sidekick and chosen pack. Harbinger learns Vendetta's hard truth. Sovereign returns. ThunderBringer rejoins the fight. The Vigilantes begin turning heroes against A.E.G.I.S.</p>
-    <p><b style="color:var(--cyan)">Revenge Spine:</b> Thought kills Connor → HellKnight is banished → Thought helps bring down Boom → HellKnight returns → HellKnight hunts Thought → Clockwork Angel's mother is revealed as part of that old debt.</p>
-    <p><b style="color:var(--cyan)">Political Spine:</b> A.E.G.I.S. controls the six galaxies. P.A.R.A.G.O.N. controls superhumans. Sovereign's survival threatens the lie. The Vigilantes target heroes, species governments, and hidden truths before starting open war.</p>
+    <span class="tag red">GM Spoiler — Supporting Network</span>
+    <p>Connor is Athena and HellKnight's son, killed by Thought. Elegantari is Mythos's Alder father. Maliere Pendragon is Mastermind's mother and Dagon's wife. Dagon was Mastermind's protector, captor, teacher, and manipulator. Asmodeus was the owner from whom Mastermind stole the manor. Lotgar rules the Wolf Dominion. The Red Lion (IX-0) holds the highest male Prince position. Levea IX-22 seeks the truth about the massacre; Blue IX-22-55 is alive and married into her family; Fulbritr IX-99 pursues Harbinger.</p>
     <div class="tblwrap"><table>
       <tr><th>Relationship</th><th>Nature</th></tr>
       <tr><td>Sovereign &amp; ThunderBringer</td><td>Old leader and sidekick. Loyalty, guilt, and restored purpose.</td></tr>
-      <tr><td>Vendetta &amp; K</td><td>Mentor, pack-leader, field partner, and dark sidekick bond.</td></tr>
+      <tr><td>Vendetta &amp; Komodo</td><td>Mentor, pack-leader, field partner, and chosen pack-brother.</td></tr>
+      <tr><td>Vendetta &amp; Mastermind</td><td>Mastermind last knew Vendetta as a young teenager; their reunion recognizes the boy, the loss, and the survivor.</td></tr>
       <tr><td>Vendetta &amp; Ryse</td><td>Ideological mirrors: chains versus order, grief versus faith.</td></tr>
-      <tr><td>Harbinger &amp; Vendetta</td><td>Hard truth relationship. Vendetta recognizes what Harbinger is becoming.</td></tr>
       <tr><td>Mythos &amp; Athena</td><td>Mother/trainer and forbidden son. Love expressed as impossible control.</td></tr>
-      <tr><td>Mythos &amp; Elegantari</td><td>Alder father, forbidden bloodline, political death sentence.</td></tr>
-      <tr><td>Clockwork Angel &amp; HellKnight</td><td>Old debt through her mother. HellKnight protects her because Eleanor saved him.</td></tr>
-      <tr><td>HellKnight &amp; Thought</td><td>Vengeance. Thought killed Connor and added names to HellKnight's dead.</td></tr>
-      <tr><td>Bansidhe &amp; Vendetta</td><td>Freedom, obsession, anger, gratitude, attraction, and instability.</td></tr>
-      <tr><td>Sovereign &amp; A.E.G.I.S.</td><td>Living proof that the old narrative is false.</td></tr>
+      <tr><td>Mythos &amp; Balakor</td><td>Recognition and a fulfilled agreement; future lessons still negotiable. No soul debt.</td></tr>
+      <tr><td>Clockwork Angel &amp; HellKnight</td><td>Old debt: HellKnight saved her because her mother once saved him.</td></tr>
+      <tr><td>HellKnight &amp; Thought</td><td>Vengeance for Connor.</td></tr>
+      <tr><td>GraveSaint &amp; Atomica</td><td>Her last act preserved him; Atomica's Echo remains unresolved.</td></tr>
+      <tr><td>White Seraph &amp; Levea</td><td>Sisters; Levea asks her to investigate the massacre from inside the House.</td></tr>
+      <tr><td>Bansidhe &amp; Vendetta</td><td>Freedom, gratitude, attraction, anger, and instability.</td></tr>
     </table></div>
   </div>
 
   <h2>Glossary</h2>
   <div class="panel"><div class="tblwrap"><table>
     <tr><th>Term</th><th>Meaning</th></tr>
-    <tr><td>A.E.G.I.S.</td><td>Astral Expanse Galactic Interlink System; six-galaxy command authority.</td></tr>
-    <tr><td>P.A.R.A.G.O.N.</td><td>Superhuman military branch of A.E.G.I.S.</td></tr>
-    <tr><td>Zero Ascendancy Policy</td><td>No independent superhuman power may rise outside sanctioned authority.</td></tr>
-    <tr><td>Prime Convergence</td><td>The multiverse collapse into the Prime Universe 50 years ago.</td></tr>
-    <tr><td>Broadcast War</td><td>Public streamed defeat of the old heroes.</td></tr>
-    <tr><td>The Propaganda Era</td><td>Current era where independent heroes are taught as threats.</td></tr>
-    <tr><td>The People's Line</td><td>Boom's shield and symbol of civilian-first heroism.</td></tr>
-    <tr><td>The Boom Engine</td><td>Boom's escalation state, where incoming punishment made his explosive output worse.</td></tr>
-    <tr><td>Shadow-Slip</td><td>Harbinger's shadow-based displacement that can look like phasing (he does <i>not</i> have true phasing).</td></tr>
-    <tr><td>HELIO-9</td><td>A.E.G.I.S. orbital weapon platform hacked by Kitsune.</td></tr>
-    <tr><td>Blackgate Omega</td><td>Most secure superhuman prison in the eastern galaxies; 93 inmates escaped.</td></tr>
-    <tr><td>Dead Zone</td><td>Harbinger's shadow technique that turns space around him into shadow.</td></tr>
-    <tr><td>Fabric Tear</td><td>A-class villain and reality cutter.</td></tr>
+    <tr><td>A.E.G.I.S.</td><td>Astral Expanse Galactic Interlink System. ARGOS is a discarded earlier term.</td></tr>
+    <tr><td>JSS</td><td>Justice Society of Sovereigns. "JSA" is an obsolete draft label. Distinguish original team, modern institution, and capability tier.</td></tr>
+    <tr><td>P.A.R.A.G.O.N.</td><td>Powered Ascendancy Response &amp; Authority Group for Operational Neutralization; also a separate Tier label.</td></tr>
+    <tr><td>Vanguard</td><td>Vigilante affiliation associated with Vendetta and Harbinger.</td></tr>
+    <tr><td>The Wyld</td><td>Warg civilization. The Wolf Dominion is its current ruling order.</td></tr>
+    <tr><td>Kurathi / Kaerathi</td><td>Alternate spellings of the same species.</td></tr>
+    <tr><td>Alder / Aldar / Eldar / Elves</td><td>Alternate names for one species.</td></tr>
+    <tr><td>Komodo / K</td><td>Vendetta's reptilian Warg partner.</td></tr>
+    <tr><td>The Silver</td><td>An unresolved investigative lead, not a confirmed identity.</td></tr>
+    <tr><td>The People's Line</td><td>Boom's shield and symbol of civilian protection.</td></tr>
+    <tr><td>The Boom Engine</td><td>Boom's escalating explosive response to punishment.</td></tr>
+    <tr><td>Shadow-Slip</td><td>Harbinger's shadow displacement — not true phasing.</td></tr>
+    <tr><td>Absolution</td><td>GraveSaint's sword.</td></tr>
+    <tr><td>HELIO-9</td><td>A.E.G.I.S. orbital weapons platform used in the Cosmic Howl operation.</td></tr>
+    <tr><td>Blackgate Omega</td><td>Superhuman prison whose collapse released 93 inmates.</td></tr>
+    <tr><td>Saint Lazarus Medical Center</td><td>Site of Vendetta's sixteen-hour defense.</td></tr>
+    <tr><td>The Eyrie</td><td>White Seraph's concealed Earth haven.</td></tr>
+    <tr><td>Wild Space</td><td>Where Mastermind's moving manor was held and later released.</td></tr>
+    <tr><td>Fengdu &amp; Ming Mountain</td><td>Gui Huang's imperial center and ritual engine.</td></tr>
+    <tr><td>Ghost Gate</td><td>The gateway closed during Gui Huang's defeat.</td></tr>
+    <tr><td>Brooklyn ley lines</td><td>Site of the Alos crisis and Mythos's first Dreadcraft instruction.</td></tr>
+    <tr><td>New York Warg Embassy</td><td>Departure point for White Seraph's planned House IX return.</td></tr>
+    <tr><td>Nightworld</td><td>World destroyed during Mythos's confrontation with Ajax Prime.</td></tr>
+    <tr><td>Vharaxis</td><td>Female kaiju and mother of the brood.</td></tr>
   </table></div></div>
 </section>
 
 <!-- ============ RULES ============ -->
 <section id="page-rules" class="page">
   <div class="panel accent">
-    <span class="tag">AEGIS D10 Core Rulebook — Compilation Edition</span>
-    <p>AEGIS uses ten-sided dice in <b>pools</b>. Ordinary actions roll <b>Attribute + Skill</b> dice. Direct Power actions roll the <b>governing Attribute + Power Rating</b>. When a Power enhances a skilled action, roll Attribute + Skill and apply only the Technique's listed enhancement — do not add the full Power Rating.</p>
-    <p style="color:var(--text-dim);font-size:.9rem">This page is a quick reference. The complete rulebook (21 chapters: powers, equipment, mass combat, lairs, and more) is on the <b>Downloads</b> page.</p>
+    <span class="tag">AEGIS D10 Play Reference</span>
+    <p>AEGIS uses ten-sided dice in <b>pools</b>. Ordinary actions roll <b>Attribute + Skill</b>. Direct Power actions roll <b>governing Attribute + Power Rating</b>. When a Power enhances skilled work, roll Attribute + Skill and add only the Technique's listed benefit — never all three ratings.</p>
+    <p style="color:var(--text-dim);font-size:.9rem">The full 21-chapter Core Rulebook (equipment, conditions, digital conflict, projects, safe havens, mass combat) is on the <b>Downloads</b> page.</p>
   </div>
 
-  <h2>Core Resolution</h2>
-  <div class="panel"><div class="tblwrap"><table>
-    <tr><th>Situation</th><th>Pool</th></tr>
-    <tr><td>Ordinary action</td><td>Attribute + Skill</td></tr>
-    <tr><td>Direct Power action</td><td>Governing Attribute + Power Rating</td></tr>
-    <tr><td>Skilled action enhanced by Power</td><td>Attribute + Skill; Technique adds listed dice, automatic successes, Scale, or effect</td></tr>
-    <tr><td>Opposed action</td><td>Both sides roll; defender wins ties</td></tr>
-    <tr><td>Extended action</td><td>Accumulate final successes toward a threshold</td></tr>
-  </table></div>
-  <h3>Successes, 1s, 10s &amp; Botches</h3>
-  <p>• Natural <b>10s explode</b> recursively — roll another die for each natural 10; new 10s also explode.<br>
-  • A natural <b>1 cancels</b> one success.<br>
-  • A <b>botch</b> occurs when more than half of the original rolled dice show natural 1s. Explosion dice never count toward botch determination, and a 1 on an explosion die cancels a success but cannot create a botch.<br>
-  • Zero or negative pool: roll one <b>desperation die</b> — it botches on 1 and explodes on 10.<br>
-  • Traits above 10: roll a maximum of 10 dice per trait; each full point above 10 becomes one <b>automatic success</b>.</p>
-  <h3>Difficulty Benchmarks</h3>
-  <div class="tblwrap"><table>
-    <tr><th>Difficulty</th><th>Benchmark</th></tr>
-    <tr><td class="mono">1</td><td>Routine task under pressure</td></tr>
-    <tr><td class="mono">2</td><td>Standard trained challenge</td></tr>
-    <tr><td class="mono">3</td><td>Challenging professional action</td></tr>
-    <tr><td class="mono">5</td><td>Exceptional specialist achievement</td></tr>
-    <tr><td class="mono">7</td><td>Legendary achievement</td></tr>
-    <tr><td class="mono">10+</td><td>Planetary, civilization-scale, or seemingly impossible</td></tr>
-  </table></div>
-  <p>Opposed rolls: net successes = attacker's final successes minus defender's. One or more net successes wins; defender wins ties. <b>5+ net successes is a Critical Success.</b> Ordinary modifiers cap at +5/−5; Teamwork dice cap at +5 separately (helpers with 2+ final successes grant the leader +1 die each).</p>
-  </div>
-
-  <h2>Willpower</h2>
+  <h2>Building a Roll</h2>
   <div class="panel">
-    <p>Maximum Willpower = <b>Resolve + Composure</b>. One Willpower per roll; normally one on your own turn plus one on a Reaction before your next turn. Spend it to: add <b>+3 dice</b> before a roll · reroll up to three failed dice after a roll · resist compulsion, emotion, a defining Flaw, or a prohibited command · remain conscious or active one turn · reroll a failed Strain-control test · ignore wound penalties until next turn. A Short Rest restores 1 Willpower; a Full Rest restores all.</p>
-  </div>
-
-  <h2>Combat Basics</h2>
-  <div class="panel">
-    <p>A round is ~6 seconds. Per round: one <b>Standard</b>, one <b>Movement</b>, one <b>Minor</b>, one <b>Reaction</b>, and reasonable Free Actions. Repeated attacks on your own turn take −3 / −6 / −9 exceptional penalties for the second, third, and fourth attacks.</p>
+    <p>• Each die showing <b>8, 9, or 10</b> is one success.<br>
+    • Natural <b>10s explode</b> recursively.<br>
+    • Each natural <b>1 cancels</b> a success, including a 1 rolled on an explosion die.<br>
+    • <b>Botch:</b> more than half the original dice show 1s. Explosion dice cannot create a botch.<br>
+    • Zero or negative pool: roll one <b>desperation die</b> (botches on 1, explodes on 10).</p>
+    <h3>Traits Above 10</h3>
+    <p>Each trait contributes at most ten rolled dice; its own points above ten become automatic successes. Dexterity 10 + Firearms 8 = <b>18 dice</b>. Dexterity 13 + Firearms 8 = <b>18 dice + 3 automatic successes</b>.</p>
+    <h3>Modifier Order</h3>
+    <p>Build the pool → convert over-ten trait points → cancel ordinary bonuses and penalties → apply the ordinary cap of ±5 → add Teamwork separately (max +5) → apply exceptional modifiers such as Scale.</p>
+    <h3>Opposed Tests &amp; Difficulty</h3>
+    <p>Subtract the defender's successes from the attacker's; the defender wins ties. One net success wins; <b>five net successes is a Critical Success</b>, with another benefit per additional full five at GM discretion.</p>
     <div class="tblwrap"><table>
-      <tr><th>Range Band</th><th>Distance</th></tr>
-      <tr><td>Engaged</td><td>0–10 feet</td></tr>
-      <tr><td>Near</td><td>10–100 feet</td></tr>
-      <tr><td>Far</td><td>100–500 feet</td></tr>
-      <tr><td>Extreme</td><td>500 feet–2 miles</td></tr>
-      <tr><td>Strategic</td><td>Beyond Extreme</td></tr>
+      <tr><th>Difficulty</th><th>Benchmark</th></tr>
+      <tr><td class="mono">1</td><td>Routine task under pressure</td></tr>
+      <tr><td class="mono">2</td><td>Standard trained challenge</td></tr>
+      <tr><td class="mono">3</td><td>Challenging professional action</td></tr>
+      <tr><td class="mono">5</td><td>Exceptional specialist achievement</td></tr>
+      <tr><td class="mono">7</td><td>Legendary achievement</td></tr>
+      <tr><td class="mono">10+</td><td>Civilization-scale or seemingly impossible action</td></tr>
     </table></div>
-    <p>Damage sequence: declare → build attack &amp; defense → roll and count net successes → Raw Damage = Base Damage + net + Critical benefit → apply Protection and AP → apply resistance/vulnerability/immunity/Scale → apply Health/Conditions → pay resources and resolve Strain.</p>
+    <p><b>Teamwork:</b> choose a leader; each helper with 2+ final successes grants one die, max +5 total. <b>Extended actions</b> accumulate successes — thresholds / max intervals: Minor 5/3, Standard 10/5, Complex 15/6, Major 25/8, Legendary 40/10. A botch removes 3 progress and adds a complication.</p>
   </div>
-
-  <h2>Attributes</h2>
-  <div class="panel"><div class="tblwrap"><table>
-    <tr><th>Category</th><th>Attributes</th></tr>
-    <tr><td><b>Physical</b></td><td>Strength, Dexterity, Stamina</td></tr>
-    <tr><td><b>Mental</b></td><td>Intelligence, Wits, Resolve</td></tr>
-    <tr><td><b>Social</b></td><td>Charisma, Manipulation, Composure</td></tr>
-  </table></div>
-  <p style="color:var(--text-dim);font-size:.9rem">Every Attribute begins at 1. Category allocations add bonus dots; species bonuses apply after. A favored racial Attribute may exceed the Tier cap by 1.</p></div>
-
-  <h2>Skills — 29 Fields of Training</h2>
-  <div class="panel"><div class="tblwrap"><table>
-    <tr><th>Physical &amp; Combat</th><th>Mental &amp; Technical</th><th>Social</th></tr>
-    <tr><td>Athletics</td><td>Awareness</td><td>Persuasion</td></tr>
-    <tr><td>Brawl</td><td>Investigation</td><td>Deception</td></tr>
-    <tr><td>Melee</td><td>Medicine</td><td>Intimidation</td></tr>
-    <tr><td>Firearms</td><td>Technology</td><td>Leadership</td></tr>
-    <tr><td>Heavy Weapons</td><td>Engineering</td><td>Empathy</td></tr>
-    <tr><td>Stealth</td><td>Demolitions</td><td>Etiquette</td></tr>
-    <tr><td>Larceny</td><td>Science</td><td>Performance</td></tr>
-    <tr><td>Piloting</td><td>Academics</td><td>Streetwise</td></tr>
-    <tr><td>Survival</td><td>Occult</td><td></td></tr>
-    <tr><td></td><td>Aethercraft</td><td></td></tr>
-    <tr><td></td><td>Xenology</td><td></td></tr>
-    <tr><td></td><td>Strategy</td><td></td></tr>
-  </table></div>
-  <p style="color:var(--text-dim);font-size:.9rem">Skill 0 may attempt most ordinary uses on Attribute alone; professional tasks untrained suffer −2 dice. Specialization slots unlock at Skill 4, 6, 8, and 10; a relevant Specialization grants +1 die.</p></div>
 
   <h2>Character Creation</h2>
   <div class="panel">
-    <p>Sequence: concept, allegiance &amp; Tier → species and Lineage/Heritage → Attribute categories → species adjustments → Skills &amp; Specializations → Powers, Branches, Techniques → Merits &amp; optional Flaws → Backgrounds → equipment → Reputation &amp; Threat Classification → derived traits → final legality audit.</p>
+    <p>Choose concept, allegiance, campaign Tier, species, and any lineage or heritage. Every Attribute begins at 1; allocate bonus dots to Primary, Secondary, and Tertiary categories, then apply species adjustments. A favored species Attribute may exceed the Tier cap by 1.</p>
     <div class="tblwrap"><table>
-      <tr><th>Tier</th><th>Attributes P/S/T</th><th>Attr Cap</th><th>Skills</th><th>Skill Cap</th><th>PP</th><th>Max Power</th><th>Merits</th><th>EP</th></tr>
-      <tr><td>Civilian</td><td class="mono">6/4/2</td><td class="mono">4</td><td class="mono">20</td><td class="mono">4</td><td class="mono">0–3</td><td class="mono">3</td><td class="mono">4</td><td class="mono">3</td></tr>
-      <tr><td>Enhanced</td><td class="mono">9/6/3</td><td class="mono">5</td><td class="mono">28</td><td class="mono">5</td><td class="mono">8</td><td class="mono">4</td><td class="mono">6</td><td class="mono">5</td></tr>
-      <tr><td>Street</td><td class="mono">12/8/4</td><td class="mono">6</td><td class="mono">36</td><td class="mono">6</td><td class="mono">15</td><td class="mono">6</td><td class="mono">8</td><td class="mono">7</td></tr>
-      <tr><td>Standard</td><td class="mono">15/10/5</td><td class="mono">8</td><td class="mono">44</td><td class="mono">7</td><td class="mono">24</td><td class="mono">8</td><td class="mono">10</td><td class="mono">9</td></tr>
-      <tr><td>PARAGON</td><td class="mono">18/12/6</td><td class="mono">10</td><td class="mono">52</td><td class="mono">8</td><td class="mono">36</td><td class="mono">10</td><td class="mono">12</td><td class="mono">12</td></tr>
-      <tr><td>JSS</td><td class="mono">22/15/8</td><td class="mono">12</td><td class="mono">60</td><td class="mono">9</td><td class="mono">52</td><td class="mono">12</td><td class="mono">14</td><td class="mono">15</td></tr>
-      <tr><td>Planetary</td><td class="mono">27/18/9</td><td class="mono">13</td><td class="mono">68</td><td class="mono">10</td><td class="mono">70</td><td class="mono">13</td><td class="mono">16</td><td class="mono">18</td></tr>
-      <tr><td>Interstellar</td><td class="mono">31/21/11</td><td class="mono">14</td><td class="mono">76</td><td class="mono">10</td><td class="mono">90</td><td class="mono">14</td><td class="mono">18</td><td class="mono">22</td></tr>
-      <tr><td>Cosmic</td><td class="mono">36/24/12</td><td class="mono">15</td><td class="mono">84</td><td class="mono">10</td><td class="mono">120</td><td class="mono">15</td><td class="mono">22</td><td class="mono">28</td></tr>
+      <tr><th>Category</th><th>Attributes</th></tr>
+      <tr><td><b>Physical</b></td><td>Strength, Dexterity, Stamina</td></tr>
+      <tr><td><b>Mental</b></td><td>Intelligence, Wits, Resolve</td></tr>
+      <tr><td><b>Social</b></td><td>Charisma, Manipulation, Composure</td></tr>
     </table></div>
+    <div class="tblwrap"><table>
+      <tr><th>Tier</th><th>Attr P/S/T</th><th>Attr Cap</th><th>Skills / Cap</th><th>PP / Max</th><th>Specs</th><th>Merits</th><th>BG / Max</th><th>EP</th><th>Reserve</th></tr>
+      <tr><td>Civilian</td><td class="mono">6/4/2</td><td class="mono">4</td><td class="mono">20/4</td><td class="mono">0–3/3</td><td class="mono">2</td><td class="mono">4</td><td class="mono">3/2</td><td class="mono">3</td><td class="mono">3 or 0</td></tr>
+      <tr><td>Enhanced</td><td class="mono">9/6/3</td><td class="mono">5</td><td class="mono">28/5</td><td class="mono">8/4</td><td class="mono">3</td><td class="mono">6</td><td class="mono">5/3</td><td class="mono">5</td><td class="mono">6</td></tr>
+      <tr><td>Street</td><td class="mono">12/8/4</td><td class="mono">6</td><td class="mono">36/6</td><td class="mono">15/6</td><td class="mono">4</td><td class="mono">8</td><td class="mono">6/3</td><td class="mono">7</td><td class="mono">10</td></tr>
+      <tr><td>Standard</td><td class="mono">15/10/5</td><td class="mono">8</td><td class="mono">44/7</td><td class="mono">24/8</td><td class="mono">6</td><td class="mono">10</td><td class="mono">8/4</td><td class="mono">9</td><td class="mono">15</td></tr>
+      <tr><td>PARAGON</td><td class="mono">18/12/6</td><td class="mono">10</td><td class="mono">52/8</td><td class="mono">36/10</td><td class="mono">8</td><td class="mono">12</td><td class="mono">10/5</td><td class="mono">12</td><td class="mono">21</td></tr>
+      <tr><td>JSS</td><td class="mono">22/15/8</td><td class="mono">12</td><td class="mono">60/9</td><td class="mono">52/12</td><td class="mono">10</td><td class="mono">14</td><td class="mono">12/6</td><td class="mono">15</td><td class="mono">28</td></tr>
+      <tr><td>Planetary</td><td class="mono">27/18/9</td><td class="mono">13</td><td class="mono">68/10</td><td class="mono">70/13</td><td class="mono">12</td><td class="mono">16</td><td class="mono">14/7</td><td class="mono">18</td><td class="mono">36</td></tr>
+      <tr><td>Interstellar</td><td class="mono">31/21/11</td><td class="mono">14</td><td class="mono">76/10</td><td class="mono">90/14</td><td class="mono">14</td><td class="mono">18</td><td class="mono">16/8</td><td class="mono">22</td><td class="mono">45</td></tr>
+      <tr><td>Cosmic</td><td class="mono">36/24/12</td><td class="mono">15</td><td class="mono">84/10</td><td class="mono">120/15</td><td class="mono">16</td><td class="mono">22</td><td class="mono">20/9</td><td class="mono">28</td><td class="mono">55</td></tr>
+    </table></div>
+  </div>
+
+  <h2>The Twenty-Nine Skills</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Category</th><th>Skills</th></tr>
+    <tr><td><b>Physical &amp; Combat</b></td><td>Athletics, Brawl, Melee, Firearms, Heavy Weapons, Stealth, Larceny, Piloting, Survival</td></tr>
+    <tr><td><b>Mental &amp; Technical</b></td><td>Awareness, Investigation, Medicine, Technology, Engineering, Demolitions, Science, Academics, Occult, Aethercraft, Xenology, Strategy</td></tr>
+    <tr><td><b>Social</b></td><td>Persuasion, Deception, Intimidation, Leadership, Empathy, Etiquette, Performance, Streetwise</td></tr>
+  </table></div>
+  <p style="color:var(--text-dim);font-size:.9rem">Skills begin at 0. Specialization slots open at 4, 6, 8, and 10 (+1 die; normally only one applies). Untrained professional work suffers −2 dice and cannot achieve advanced outcomes; surgery, advanced hacking, explosives, Aether rituals, engineering design, and alien medicine need at least one dot.</p></div>
+
+  <h2>Playable Species</h2>
+  <div class="panel">
+    <p>A standard package: +3 Attribute total (max +2 to one), one Skill dot, one Specialization, two favored caps, one racial Power at rating 1, access to more racial Powers, three racial Merits, three mandatory racial Flaws. Political rank and wealth require Backgrounds.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Species</th><th>Free Racial Power</th><th>Continuity or Limit</th></tr>
+      <tr><td><b>Human</b></td><td>Human Potential 1</td><td>Biological mortality remains unless another Power changes it.</td></tr>
+      <tr><td><b>Warg</b></td><td>Heightened Senses 1</td><td>One Lineage Module; House status is purchased or earned separately.</td></tr>
+      <tr><td><b>Graven</b></td><td>Graven Reconstruction 1</td><td>A surviving memory core permits reconstruction; repair replaces biological healing.</td></tr>
+      <tr><td><b>Mycelyth</b></td><td>Mycelial Network 1</td><td>A surviving node, colony, or biomass anchor can preserve continuity.</td></tr>
+      <tr><td><b>Brighton</b></td><td>Heartflare Form 1</td><td>The Heartflare is the vital continuity anchor.</td></tr>
+      <tr><td><b>Alder</b></td><td>Aether Affinity 1</td><td>Choose True-Blood or Engineered Heritage; affinity alone is not full Aether Weaving.</td></tr>
+    </table></div>
+    <p><b>Warg Lineage Modules</b> include Lupine, Reptilian, Avian, Aquarian, Sapian, Ursine, Regalius, Fox, Coyote, Jackal, Falcon, Owl, Corax, Cobra, Frog, Tortoise, Gecko, Whale, Tiger, Jaguar, Dragon, and more.</p>
+    <p style="color:var(--red)"><b>Kurathi and Primaris have no player package.</b> Mythos's hybrid package and Kitsune's apparent Fox package are character-specific exceptions.</p>
+  </div>
+
+  <h2>Purchasing Powers</h2>
+  <div class="panel">
+    <p>Buy a parent Power at rating 1 by Scope: <b>Focused</b> 1 PP, <b>Standard</b> 2, <b>Framework</b> 3, <b>Authority</b> 5. Each new rating 2–10 costs 1 PP; 11–12 cost 2; 13–14 cost 3; 15 costs 4. A dependent branch starts at 1 PP and cannot exceed its parent.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Min. Rating</th><th>Technique Tier</th><th>PP</th></tr>
+      <tr><td class="mono">1</td><td>Minor</td><td class="mono">1</td></tr>
+      <tr><td class="mono">3</td><td>Standard</td><td class="mono">1</td></tr>
+      <tr><td class="mono">5</td><td>Strong</td><td class="mono">2</td></tr>
+      <tr><td class="mono">7</td><td>Major</td><td class="mono">2</td></tr>
+      <tr><td class="mono">9</td><td>Grand</td><td class="mono">3</td></tr>
+      <tr><td class="mono">12</td><td>Ultimate</td><td class="mono">4</td></tr>
+      <tr><td class="mono">15</td><td>Cosmic</td><td class="mono">6</td></tr>
+    </table></div>
+    <p>A Power rating measures an established capability; it does not automatically provide a new delivery method, extra actions, area, permanent creation, or higher Scale. A named Technique states the permission and cost. Optional personal Flaws grant +1 Merit Point per Flaw Point (max 3 bonus); mandatory racial Flaws grant none.</p>
+    <p><b>Power Catalogue:</b> Super Strength, Super Endurance, Flight, Super Speed, Regeneration, Telekinesis, Telepathy, Energy Projection, Energy Manipulation, Shapeshifting, Invisibility, Force Fields, Weather Control, Technopathy, Biomass Ascension, Aether Weaving, Reality Authority.</p>
   </div>
 
   <h2>Derived Traits</h2>
@@ -390,7 +459,7 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
     <tr><th>Trait</th><th>Formula</th></tr>
     <tr><td>Health</td><td class="mono">10 + Stamina ×2 + Size ×2 (min 3)</td></tr>
     <tr><td>Willpower</td><td class="mono">Resolve + Composure</td></tr>
-    <tr><td>Power Reserve</td><td class="mono">Resolve + Tier Reserve Base</td></tr>
+    <tr><td>Power Reserve</td><td class="mono">Resolve + Tier Reserve base</td></tr>
     <tr><td>Strain Limit</td><td class="mono">Stamina + Resolve</td></tr>
     <tr><td>Initiative</td><td class="mono">Wits + Dexterity</td></tr>
     <tr><td>Speed</td><td class="mono">5 + Dexterity + Size (min 1)</td></tr>
@@ -399,150 +468,310 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
     <tr><td>Block</td><td class="mono">Stamina + Athletics + Size mod + shield/Technique</td></tr>
     <tr><td>Mental Defense</td><td class="mono">Resolve + Composure</td></tr>
     <tr><td>Social Defense</td><td class="mono">Composure + Wits</td></tr>
-    <tr><td>Passive Awareness</td><td class="mono">(Wits + Awareness) ÷ 3, rounded up (min 1)</td></tr>
+    <tr><td>Passive Awareness</td><td class="mono">(Wits + Awareness) ÷ 3, round up (min 1) + auto successes</td></tr>
+    <tr><td>Passive Defense</td><td class="mono">Modified active pool ÷ 4, round up + auto successes</td></tr>
   </table></div></div>
 
-  <h2>Playable Species</h2>
+  <h2>A Combat Round</h2>
   <div class="panel">
-    <p><b>Humans</b> (adaptable, Human Potential), <b>Wargs</b> (choose a Lineage Module: Lupine, Reptilian, Avian, Aquarian, Sapian, Ursine, Regalius, Fox, Coyote, Jackal, Falcon, Owl, Corax, Cobra, Frog, Tortoise, Gecko, Whale, Tiger, Jaguar, Dragon, and more), <b>Graven</b> (stone-metal memory keepers), <b>Mycelyth</b> (fungal collective), <b>Brightons</b> (living starlight), and <b>Alder</b> (ancient cosmic intellects).</p>
-    <p>A standard species package: +3 Attribute total (max +2 to one), +1 Skill, one Specialization, two favored caps, one free racial Power at rating 1, three racial Merits, and three mandatory racial Flaws.</p>
-    <p style="color:var(--red)"><b>Kurathi are not a standard player species.</b> Mythos is the sole playable exception unless future canon explicitly changes that restriction.</p>
+    <p>~6 seconds. Each character gets one <b>Standard</b>, one <b>Movement</b>, one <b>Minor</b>, one <b>Reaction</b> (refreshes at the start of your turn), and reasonable Free Actions. A <b>Full</b> action consumes Standard + Movement. Repeated attacks on your own turn take −3 / −6 / −9 exceptional penalties. Extra actions need explicit permission — at most one extra of a given type per turn.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Action</th><th>Common Use</th></tr>
+      <tr><td>Standard</td><td>Attack, major Skill test, Technique, grapple, recovery attempt, extended-action interval</td></tr>
+      <tr><td>Movement</td><td>Move by Speed; split movement where allowed</td></tr>
+      <tr><td>Minor</td><td>Draw an item, aim briefly, simple interaction, or a listed Technique</td></tr>
+      <tr><td>Reaction</td><td>Active defense, interpose, protect another, or a listed counter</td></tr>
+      <tr><td>Full</td><td>Major attack, ritual, or complex operation</td></tr>
+    </table></div>
+    <p><b>Movement:</b> Speed 1–9 = 1 Zone, 10–19 = 2, 20–29 = 3, +1 per additional 10. Sprint (Standard) doubles movement. <b>Range bands:</b> Engaged ≤10 ft · Near ≤100 ft · Far ≤500 ft · Extreme ≤2 miles · Strategic beyond.</p>
   </div>
 
-  <h2>Powers &amp; the Aether Mysteries</h2>
+  <h2>Attacks &amp; Damage</h2>
   <div class="panel">
-    <p><b>Power Catalogue:</b> Super Strength, Super Endurance, Flight, Super Speed, Regeneration, Telekinesis, Telepathy, Energy Projection, Energy Manipulation, Shapeshifting, Invisibility, Force Fields, Weather Control, Technopathy, Biomass Ascension, Aether Weaving, and Reality Authority — each with Branches, Techniques, Refinements, and Signature upgrades.</p>
-    <p><b>The Eight Aether Mysteries:</b> Font, Shaping, Mind, Seer, Life, Soul, Gate, and Arbiter.</p>
-    <p style="color:var(--text-dim);font-size:.9rem">Technique tiers run Minor → Standard → Strong → Major → Grand → Ultimate → Cosmic. Full rules, costs, and catalogues are in the Core Rulebook on the Downloads page.</p>
+    <p><b>Raw Damage = Base Damage + net successes + any Critical damage benefit.</b> Then apply Protection, Armor Piercing, resistance, vulnerability, immunity, and Scale.</p>
+    <p>• <b>Protection:</b> highest source in full + half the second-highest, rounded down. AP reduces combined Protection to a minimum of 0.<br>
+    • <b>Critical</b> can: +3 Raw Damage, +2 AP, impose a condition, increase knockback, disrupt a resource, damage equipment, or avoid collateral.<br>
+    • <b>Resistance</b> halves remaining damage (round down); <b>Vulnerability</b> +50% (round up); <b>Severe Vulnerability</b> doubles; <b>Immunity</b> zeroes. Ordinary Protection is halved against Annihilation.<br>
+    • An area attack is rolled once and compared to each target's defense.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Damage Type</th><th>Recovery &amp; Consequence</th></tr>
+      <tr><td><b>Superficial</b></td><td>Cannot reduce Health below 0; continued damage converts existing Superficial to Lethal.</td></tr>
+      <tr><td><b>Lethal</b></td><td>Natural recovery 1 per 24 hours. Bleeding may continue until treated.</td></tr>
+      <tr><td><b>Aggravated</b></td><td>Natural recovery 1 per week. Enhanced healing needs explicit permission.</td></tr>
+      <tr><td><b>Annihilation</b></td><td>No ordinary healing. Reconstruction needs explicit permission and surviving continuity.</td></tr>
+    </table></div>
+    <p><b>Wounded</b> (½ Health or less): −1 to physical Skill and direct Power actions. <b>Critical</b> (¼ or less): −2 to all actions, Movement down one step. <b>0 Health:</b> incapacitated. Negative Health = Stamina: <b>Dying</b> (Stamina + Survival diff 2 each round). Negative = 2× Stamina: <b>Dead</b> unless a continuity rule applies. First aid: Intelligence + Medicine diff 2. Damage ≥ ½ max Health after mitigation is <b>Massive</b>; ≥ ¾ is <b>Catastrophic</b>.</p>
+  </div>
+
+  <h2>Reserve, Strain &amp; Willpower</h2>
+  <div class="panel">
+    <p>Powers spend Energy from <b>Power Reserve</b>. Recover 1 Reserve at the start of your turn only if you spent none since your previous turn and paid no upkeep.</p>
+    <p><b>Strain:</b> at ⅓ Strain Limit, direct Power and control rolls take −1 exceptional die. At ⅔, −2 and Power costs +1 Energy. At the limit you <b>Crash</b>: Reserve to 0, Power Crashed and Exhausted, non-survival sustained effects end, and Lethal damage equal to ¼ current Strain (round up, max 8).</p>
+    <p><b>Concentration capacity</b> = 1 + Resolve ÷ 5 (round down, max 4); each effect after the first adds −2 exceptional dice. Taking damage prompts Resolve + Composure (diff 2; 3 for Massive, 5 for Catastrophic).</p>
+    <p><b>Overcharge:</b> +1 effective rating for 2 Energy &amp; 1 Strain; +2 for 5 Energy &amp; 3 Strain; +3 for 9 Energy &amp; 6 Strain. Cannot exceed 15 or invent a missing permission.</p>
+    <p><b>Willpower</b> (max Resolve + Composure): +3 dice before a roll, or reroll up to 3 failed dice after; also resistance, momentary continued action, control, or ignoring wounds. One per roll; normally one on your turn and one on a Reaction.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Recovery</th><th>Effect</th></tr>
+      <tr><td>10-minute Breather</td><td>Remove 1 Strain (once between Short Rests).</td></tr>
+      <tr><td>1-hour Short Rest</td><td>Heal 6 Superficial; restore 25% Reserve; remove ¼ Strain Limit; one temporary-condition recovery attempt; regain 1 Willpower (once between Full Rests).</td></tr>
+      <tr><td>8-hour Full Rest</td><td>Heal all Superficial; restore Willpower and Reserve; remove Strain; eligible recovery attempts.</td></tr>
+    </table></div>
+  </div>
+
+  <h2>Tier, Scale &amp; Threat Class</h2>
+  <div class="panel">
+    <p>Tier is a creation framework. Threat Class is an institutional assessment. Neither automatically supplies Scale. Track Potency, Area, Movement, and Structure Scale independently. The columns below are separate lists, not equivalences.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Scale</th><th>Designation</th><th>Threat Class</th><th>Designation</th></tr>
+      <tr><td>S0</td><td>Personal</td><td>0</td><td>Unrated</td></tr>
+      <tr><td>S1</td><td>Tactical</td><td>1</td><td>Local</td></tr>
+      <tr><td>S2</td><td>Structural</td><td>2</td><td>Enhanced</td></tr>
+      <tr><td>S3</td><td>City</td><td>3</td><td>Superhuman</td></tr>
+      <tr><td>S4</td><td>Regional</td><td>4</td><td>PARAGON</td></tr>
+      <tr><td>S5</td><td>Planetary</td><td>5</td><td>JSS</td></tr>
+      <tr><td>S6</td><td>Stellar</td><td>6</td><td>Planetary</td></tr>
+      <tr><td>S7</td><td>Galactic</td><td>7</td><td>Interstellar</td></tr>
+      <tr><td>S8</td><td>Cosmic</td><td>8</td><td>Cosmic or Existential</td></tr>
+    </table></div>
+    <p>A one-step Scale advantage grants 3 exceptional dice; two steps grant 6 dice + 1 automatic success. At three or more steps, the lower side needs a weak point, Scale-Breaker, Combined Power, component attack, or objective-based solution.</p>
+  </div>
+
+  <h2>The Eight Aether Mysteries</h2>
+  <div class="panel">
+    <p><b>Aethercraft</b> is a Skill. <b>Aether Weaving</b> is a Framework Power; its Mysteries are dependent branches limited by the parent.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Mystery</th><th>Governs</th><th>Important Boundary</th></tr>
+      <tr><td><b>Font</b></td><td>Sources, transfer, storage, channeling, ritual supply</td><td>No limitless energy; does not provide another Mystery's effect.</td></tr>
+      <tr><td><b>Shaping</b></td><td>Sigils, tools, barriers, constructs, wards, enchantment, architecture</td><td>Does not supply sapience, biological healing, or permanent artifacts.</td></tr>
+      <tr><td><b>Mind</b></td><td>Communication, illusion, emotion, dreams, compulsion, cognition</td><td>Uses mental resistance; influence is not unrestricted control.</td></tr>
+      <tr><td><b>Seer</b></td><td>Omens, remote viewing, past echoes, possible futures, concealment detection</td><td>Reveals information; does not force outcomes.</td></tr>
+      <tr><td><b>Life</b></td><td>Healing, tissue, disease, poison, living form, ecosystems</td><td>Does not restore a soul or make resurrection automatic.</td></tr>
+      <tr><td><b>Soul</b></td><td>Spirits, identity, continuity, exorcism, vessels, resurrection</td><td>Requires viable continuity and, where needed, a body or vessel.</td></tr>
+      <tr><td><b>Gate</b></td><td>Spatial access, teleportation, portals, anchors, dimensional travel</td><td>Needs a valid destination; respects seals and counters.</td></tr>
+      <tr><td><b>Arbiter</b></td><td>Counterweaving, typed suppression, oaths, seals, permissions, quarantine</td><td>No arbitrary authority over every law.</td></tr>
+    </table></div>
+    <p>Multi-Mystery work uses the lowest participating branch rating, the highest Technique cost +1 Energy per additional Mystery, and +1 Strain for three or more Mysteries.</p>
+  </div>
+
+  <h2>Dreadcraft</h2>
+  <div class="panel">
+    <p>Dreadcraft controls, manipulates, creates, and destroys <b>emotions</b> — fear is one application, not the whole discipline. The emotion changes; memories and knowledge stay intact. It does not implant beliefs, read thoughts, rewrite memories, or dictate behavior, and magically created affection never establishes consent, allegiance, or trust. Intensity steps: <b>absent → faint → strong → overwhelming</b>.</p>
+    <div class="tblwrap"><table>
+      <tr><th>Task</th><th>Pool</th></tr>
+      <tr><td>Perceive emotion / examine a working</td><td>Wits + Aethercraft</td></tr>
+      <tr><td>Shape one's own emotion</td><td>Resolve + Aethercraft</td></tr>
+      <tr><td>Shape another's emotion</td><td>Manipulation + Aethercraft</td></tr>
+      <tr><td>Analyze or design a lasting pattern</td><td>Intelligence + Aethercraft</td></tr>
+      <tr><td>Resist an unwanted working</td><td>Resolve + Composure (defender wins ties)</td></tr>
+    </table></div>
+    <h3>Optional Discipline Progression</h3>
+    <div class="tblwrap"><table>
+      <tr><th>Rank</th><th>Name</th><th>New Permission</th></tr>
+      <tr><td>1</td><td>Initiate</td><td>Surface reading within 5 m; modest one-emotion self-shaping.</td></tr>
+      <tr><td>2</td><td>Apprentice</td><td>One-step change to another being through maintained contact.</td></tr>
+      <tr><td>3</td><td>Weaver</td><td>One subject within 10 m; create, remove, or set one emotion.</td></tr>
+      <tr><td>4</td><td>Adept</td><td>Up to three subjects within 20 m; blend or redirect feelings.</td></tr>
+      <tr><td>5</td><td>Binder</td><td>10-minute ritual; bind a response to a sensory cue (anchor lasts a day).</td></tr>
+      <tr><td>6</td><td>Conductor</td><td>Shared influence in a 10 m radius, up to 10 minutes.</td></tr>
+      <tr><td>7</td><td>Architect</td><td>1-hour ritual; alter one emotional association for up to a week.</td></tr>
+      <tr><td>8</td><td>Master</td><td>1-hour ritual; conditional pattern on a subject or site for a month.</td></tr>
+      <tr><td>9</td><td>Sovereign</td><td>8-hour ritual; alter a subject's capacity for an emotion for up to a year.</td></tr>
+      <tr><td>10</td><td>Paragon</td><td>1-day+ ritual; enduring pattern on a subject or 100 m domain via anchor.</td></tr>
+    </table></div>
+    <p style="color:var(--text-dim);font-size:.9rem">Cost by minimum rank: 1–3 = 1 Reserve, 4–6 = 2, 7–9 = 3, 10 = 4 + anchor. Ranks 1–4 last up to one minute with concentration. Rank names are discipline titles, not Tiers or institutions.</p>
   </div>
 
   <h2>Canon Corrections</h2>
   <div class="panel">
-    <p>• <b>"JSA" is not a valid term</b> in this setting. The original JSS was the independent Justice Society of Sovereigns; the modern JSS is the A.E.G.I.S.-sponsored successor that leads P.A.R.A.G.O.N.</p>
-    <p>• A.E.G.I.S. is <b>not</b> ARGOS. ARGOS is an old draft term, intelligence error, or discarded file name unless intentionally reintroduced as an outdated codename.</p>
-    <p>• Harbinger does <b>not</b> have true phasing. Any apparent phasing is shadow-based displacement known as <b>Shadow-Slip</b>.</p>
-    <p>• Kurathi remain excluded from standard player species; Mythos is the sole exception.</p>
+    <p>• <b>"JSA"</b> is an obsolete draft label. <b>ARGOS</b> is a discarded earlier term for A.E.G.I.S.</p>
+    <p>• The original JSS has <b>ten confirmed members</b>. White Seraph and Vendetta are not retroactive members; ThunderBringer was Sovereign's sidekick, not one of the ten.</p>
+    <p>• The original Clockwork Angel's name <b>"Eleanor" is superseded</b>. The deceased IX Prince is <b>IX-66</b> (earlier "IX-55" is superseded).</p>
+    <p>• Harbinger's Shadow-Slip is shadow displacement, not true phasing. Vendetta's density rules do not grant unrestricted passage through matter.</p>
+    <p>• ThunderBringer's historical "9+" threat rating is earlier notation — not a ninth class in the current 0–8 Threat Class table.</p>
   </div>
 </section>
 
 <!-- ============ DOSSIERS ============ -->
 <section id="page-dossiers" class="page">
-  <h2>The Old Justice Society of Sovereigns</h2>
+  <h2>The Original Justice Society of Sovereigns</h2>
   <div class="panel">
-    <p>Before A.E.G.I.S. controlled the stars, there were heroes who acted without permission. The greatest of them were the <b>Justice Society of Sovereigns</b> — protectors, symbols, rebels, celebrities, soldiers, monsters to some, saviors to others. A.E.G.I.S. teaches that the JSS became too dangerous and had to be stopped. Older people, hidden communities, and outlaw heroes tell a different story.</p>
+    <p>Before A.E.G.I.S. controlled the stars, there were heroes who acted without permission. The original JSS has <b>ten confirmed members</b>. A.E.G.I.S. teaches that they became too dangerous and had to be stopped. Older people, hidden communities, and outlaw heroes tell a different story.</p>
     <div class="tblwrap"><table>
-      <tr><th>Member</th><th>Identity / Species</th><th>Player-Facing Summary</th><th class="spoiler">GM Spoiler Notes</th></tr>
-      <tr><td><b>Sovereign</b></td><td>Last of his kind</td><td>Leader of the old JSS and symbol of the Hero Age. A.E.G.I.S. claimed he was defeated, but rumors say the truth was never that simple.</td><td class="spoiler">Approx. 2,000 years old. Destroyed his own species to stop a galaxy-annihilating weapon. Swore never to kill again. Strong enough to destroy A.E.G.I.S. alone.</td></tr>
-      <tr><td><b>Boom</b></td><td>Hero of the people</td><td>Wielder of The People's Line. Loud, fearless, impossible to ignore. Died during the broadcasted assault.</td><td class="spoiler">He died protecting civilians. Thought delivered the final blow, and Boom forgave him.</td></tr>
-      <tr><td><b>Athena</b></td><td>Kurathi</td><td>Warrior, strategist, and disciplined old JSS member. Known for discipline, control, and battlefield precision.</td><td class="spoiler">Mother of Mythos. Former lover of HellKnight and mother of Connor. Rescued Battle Brute. Forbidden union with Elegantari.</td></tr>
-      <tr><td><b>Old Clockwork Angel</b></td><td>Legacy hero</td><td>Original protector and stabilizer many modern heroes still respect.</td><td class="spoiler">Mother of current Clockwork Angel. Saved HellKnight's life. Possibly named Eleanor. Now dead.</td></tr>
-      <tr><td><b>Battle Brute / Lunar Fang</b></td><td>Warg, Shadow Call wolf noble</td><td>Frontline powerhouse whose mutation let him duplicate himself into a one-man army.</td><td class="spoiler">Mutation allowed up to 99 duplicates. His wolf house tried to kill him. Athena rescued him and brought him to Earth.</td></tr>
-      <tr><td><b>Thought</b></td><td>Former member / traitor</td><td>Mysterious speed/intelligence-based member whose role in the fall remains surrounded by rumor and contradiction.</td><td class="spoiler">Killed Connor, helped bring down Boom, and is hunted by HellKnight.</td></tr>
-      <tr><td><b>Master Mind / M</b></td><td>Strongest psychic recorded</td><td>Chaotic, brilliant, hard-living psychic — infamous for appearing uninvited.</td><td class="spoiler">Dark teal psychic energy, psychic armor/weapons, bisexual, many lovers, pocket-dimension manor.</td></tr>
-      <tr><td><b>SunBurst</b></td><td>Brighton bound to battle mech</td><td>Fast, bright, sarcastic, beloved for radiant whips and constant quips.</td><td class="spoiler">A Spider-Man/Flash-style personality. Light forced into a war machine.</td></tr>
+      <tr><th>Member</th><th>Identity &amp; Role</th><th>Current Status</th></tr>
+      <tr><td><b>Sovereign</b></td><td>Leader; the last Primaris. Bound by a no-kill oath.</td><td>Rescued; supporting the Quiet Rebellion.</td></tr>
+      <tr><td><b>Boom</b></td><td>The people's hero; wielder of The People's Line and the Boom Engine.</td><td>Died in the Broadcast War; later freed from Gui Huang's necromancy and passed on.</td></tr>
+      <tr><td><b>Athena</b></td><td>Kurathi warrior and strategist.</td><td>Living; family and political ties to Mythos, HellKnight, and JaxK.</td></tr>
+      <tr><td><b>Clockwork Angel (original)</b></td><td>Original protector and healer; mother of the current Clockwork Angel.</td><td>Dead; soul freed at Fengdu after reuniting with her daughter.</td></tr>
+      <tr><td><b>Battle Brute / Lunar Fang</b></td><td>Warg of the Shadow Call lineage; could create up to 99 duplicates.</td><td>Fate unresolved.</td></tr>
+      <tr><td><b>Thought</b></td><td>Speed and mental capability; tied to the team's betrayal.</td><td>Hunted by HellKnight.</td></tr>
+      <tr><td><b>Mastermind</b></td><td>Human psychic and Aethercraft practitioner; strongest psychic ever recorded.</td><td>Rescued from his manor and recovering.</td></tr>
+      <tr><td><b>SunBurst</b></td><td>Brighton whose living light was bound into a battle mech. Fast, radiant, sarcastic.</td><td>Whereabouts unresolved.</td></tr>
+      <tr><td><b>Mercy</b></td><td>Young pacifist healer who refused to harm others.</td><td>Survived; became GraveSaint.</td></tr>
+      <tr><td><b>Atomica</b></td><td>Quantum-powered teammate.</td><td>Died preserving Mercy below ordinary atomic existence.</td></tr>
     </table></div>
     <div class="gm-note spoiler blockspoiler">
-      <span class="tag red">GM Spoiler — Sovereign, Key Truths</span>
-      <p style="margin:.4rem 0 0">He is ~2,000 years old; only the Alder suspect it. He is the last of his kind. His people built a weapon capable of annihilating galaxies — fearing they would use it, he destroyed his own species. He swore never to kill again and has kept that oath. His power and speed are unmatched; he can kill Kurathi without difficulty. He could destroy A.E.G.I.S. by himself, but refuses to become the destroyer again.</p>
+      <span class="tag red">GM Spoiler — The Fall</span>
+      <p style="margin:.4rem 0 0">Sonic dampeners and nanobites weakened Boom; Thought delivered the final blow. Boom forgave him and gave the people a final thumbs-up. At Fengdu, the freed Boom recognized Vendetta, called him "Champ," said he was proud, and helped destroy the remaining amulets before dissolving — a completed farewell, not a resurrection. Thought killed Connor; his motives remain a mystery to be found in play. Lunar Fang's House tried to kill him; Athena saved him. At Fengdu, a bound "Black Brute" manifestation appeared with three copies — its relationship to the original remains unresolved. Mercy was Atomica's lover.</p>
     </div>
     <div class="gm-note spoiler blockspoiler">
-      <span class="tag red">GM Spoiler — Athena, Elegantari &amp; Mythos</span>
-      <p style="margin:.4rem 0 0">Athena is Kurathi. Elegantari is Alder. Mythos is their son — a forbidden Kurathi-Alder hybrid whose existence would be a death sentence if either side learned who and what he is. Athena trained Mythos with extreme discipline because loss of control could expose his heritage and catastrophic power. Her doctrine, <i>"Emotion destroys worlds,"</i> is both emotional damage and survival strategy.</p>
+      <span class="tag red">GM Spoiler — Sovereign</span>
+      <p style="margin:.4rem 0 0">Sovereign's true name is Sa'virn. He is roughly 2,000 years old; he destroyed his own species to stop a galaxy-annihilating weapon and swore never to kill again. He found Mastermind barely alive in Wild Space. Reuniting the old team is not a restoration button — survivors carry injuries, grief, and changed ethics.</p>
     </div>
   </div>
 
-  <h2>The Vigilantes — Current Roster</h2>
+  <h2>The Current Cast</h2>
   <div class="grid">
-    <div class="card"><h4>Sovereign</h4><div class="role">RESTORED LEADER / LIVING PROOF</div>
-      <p>Alive, ancient, impossibly powerful, and restrained by his no-kill oath.</p></div>
-    <div class="card"><h4>ThunderBringer / StormBringer</h4><div class="role">STORM-LEVEL REBEL</div>
-      <p>Former sidekick to Sovereign; joined after Sovereign was saved. Total atmospheric control, global weather manipulation, lightning, wind, pressure, flight, temperature manipulation, storm amplification. A.E.G.I.S. threat rating: <span class="k">9+</span>.</p></div>
-    <div class="card"><h4>Vendetta</h4><div class="role">STREET-LEVEL HEART / HARDLINE PROTECTOR</div>
-      <p><span class="k">Powers:</span> Regeneration, density manipulation, firearms.</p>
-      <p><span class="k">Defining event:</span> Saint Lazarus Holdout — held a hospital for 16 hours and defeated 23 escaped villains before Grinder arrived.</p>
-      <p><span class="k">Core ethic:</span> Victory is measured by who survives behind him — <i>"No. But they didn't get you."</i></p></div>
-    <div class="card"><h4>K</h4><div class="role">VENDETTA'S SIDEKICK / CHOSEN PACK</div>
-      <p>Komodo Warg variant. Superhuman strength, durability, regeneration, venomous bite, thermal resistance, enhanced senses, claws, tail strike, natural armor. A weaponized survivor who found loyalty through chosen pack.</p></div>
-    <div class="card"><h4>Harbinger</h4><div class="role">EXPLOSIVE-SHADOW VIGILANTE</div>
-      <p><span class="k">Powers:</span> Regeneration (Annihilation branch), explosive charging of broken-off body parts (Shotgun technique; Energize branch), Shadow control (Veins of the Night, Dead Zone), Shadow-Slip displacement. Cosmic Blessed &amp; Cosmic Blooded.</p>
-      <p class="spoiler"><span class="k">Weakness:</span> Specific frequencies can disrupt regeneration sync.</p></div>
-    <div class="card"><h4>Kitsune</h4><div class="role">TECH GENIUS / CHAOS OPERATOR</div>
-      <p><span class="k">Powers:</span> Chaos Control, Telekinesis (telekinetic swarm), Luck, Super Intelligence (Disconnect). Techniques: Mental Hack, Logical Conclusion.</p>
-      <p>Drone controller, probability disruptor, systems hacker, and battlefield planner.</p></div>
-    <div class="card"><h4>Mythos</h4><div class="role">COSMIC FIGHTER</div>
-      <p><span class="k">Known powers:</span> Kinetic blades, energy armor, teleportation, ancient runes, spell circles, kinetic absorption/redirection, high-speed combat, regeneration, arcane precision, and deeper ancient raw power.</p>
-      <p class="spoiler"><span class="k">True origin:</span> Forbidden son of Athena (Kurathi) and Elegantari (Alder). Both sides would likely kill him if his identity became public.</p>
-      <p class="spoiler"><span class="k">Defining event:</span> Killed Ajax Prime during the Nightworld Incident after losing emotional control.</p>
-      <p class="spoiler"><span class="k">Core fear:</span> Not that he might lose — that he might enjoy what he becomes.</p></div>
-    <div class="card"><h4>Clockwork Angel</h4><div class="role">PROTECTOR / LEGACY HERO</div>
-      <p>Daughter of the original Clockwork Angel. Mechanical wings, chest core, temporal shielding, field manipulation, kinetic barriers, chrono-reactive armor, biometric stabilization, light constructs.</p>
-      <p class="spoiler"><span class="k">Key event:</span> Nearly killed by IX-66 and saved when HellKnight returned. Carries her mother's debt into the current rebellion.</p></div>
+    <div class="card"><h4>Vendetta</h4><div class="role">FRONTLINE PROTECTOR / VANGUARD</div>
+      <p><span class="k">Powers:</span> Density Manipulation, Regeneration, Super Stamina, Berserker Engine; firearms and disciplined close combat.</p>
+      <p>Held Saint Lazarus Medical Center for sixteen hours after Blackgate Omega's collapse and defeated twenty-three villains. Victory is measured by the people behind him: <i>"No. But they didn't get you."</i></p></div>
+    <div class="card"><h4>Harbinger</h4><div class="role">EXPLOSIVE SHADOW FIGHTER / VANGUARD</div>
+      <p><span class="k">Powers:</span> Regeneration, Living Detonation, Shadow Dominion, and an unstable Cosmic Surge. Techniques include Shotgun, Veins of the Night, Dead Zone, Shadow-Slip, and Shadowform.</p>
+      <p>Medical and biological specialist and dangerous field negotiator.</p>
+      <p class="spoiler"><span class="k">Weakness:</span> Tuned resonance can disrupt both his recovery and biological detonations.</p></div>
+    <div class="card"><h4>Kitsune</h4><div class="role">TECHNICAL PRODIGY / INVESTIGATOR</div>
+      <p><span class="k">Powers:</span> Chaos Control (Glamour, Fortune), Telekinesis (Tele Swarm), Super Intelligence (Disconnect).</p>
+      <p>Nanotechnology specialist, investigator, and covert controller.</p>
+      <p class="spoiler"><span class="k">Restricted truth:</span> From another universe, not a native Fox Warg. A dormant cosmic entity is concealed within her; she is unaware of it and cannot command it. Emergence track: silence → echoes → stirring → contact → emergence → awakening → ascendance.</p></div>
+    <div class="card"><h4>Mythos</h4><div class="role">AETHER PRACTITIONER / KINETIC FIGHTER</div>
+      <p><span class="k">Powers:</span> Aether Weaving (Mind, Seer, Gate, Arbiter), Telekinesis, Super Endurance, Force Fields, <b>Dreadcraft 1</b>. Techniques: Aether Step, Temporal Anchor, Spatial Lock, Dimensional Counter, Sands of Time.</p>
+      <p><span class="k">Gear:</span> Phase-Edge Blades, KX-9 Graveline rifle, adaptive warframe, Alder Synaptic Crown, kinetic storage, dimensional anchor beacon.</p>
+      <p class="spoiler"><span class="k">Secret:</span> Kurathi-Alder hybrid, son of Athena and Elegantari. Official files retain Black Division history. Killed Ajax Prime at Nightworld after losing control and fears enjoying what he could become. Sonic vulnerability; Alder metabolic restriction against meat.</p></div>
+    <div class="card"><h4>White Seraph</h4><div class="role">AERIAL PROTECTOR / SCOUT / RESCUER</div>
+      <p><span class="k">Powers:</span> Living Plumage (Whisperfeather, Merciful Volley, Guardian Pinions, Pinion Cage), Flight, Super Strength, Regeneration, healing-light support.</p>
+      <p>White-furred Regalius IX Warg with large white wings. Her detachable feathers act as remote limbs and sensors. Base: the Eyrie.</p>
+      <p class="spoiler"><span class="k">Cover:</span> Her planned marriage return to House IX is an investigative ruse at Levea's request.</p></div>
+    <div class="card"><h4>Komodo</h4><div class="role">FIELD PARTNER / PACK-BROTHER</div>
+      <p><span class="k">Powers:</span> Exceptional strength, durability, regeneration, natural armor, enhanced senses, claws, tail strike, venomous bite, thermal resistance.</p>
+      <p>Reptilian Warg; Vendetta's chosen pack-brother. His loyalty is personal and earned.</p></div>
+    <div class="card"><h4>Clockwork Angel</h4><div class="role">PROTECTOR / BATTLEFIELD STABILIZER</div>
+      <p><span class="k">Systems:</span> Mechanical wings, chest core, temporal shielding, field manipulation, kinetic barriers, chrono-reactive armor, biometric stabilization, light constructs.</p>
+      <p>Bearer of her mother's legacy. Ammunition, maintenance, and damaged systems matter even in extraordinary battles.</p></div>
+    <div class="card"><h4>GraveSaint</h4><div class="role">HEALER / AVENGER / PRISON-BREAKER</div>
+      <p><span class="k">Powers:</span> Quantum Restoration, Quantum Reconstitution (return after death), Martyr's Evolution, <b>Quantum Lock</b> (traps everyone inside; stops regeneration and most adaptation — including his own).</p>
+      <p><span class="k">Gear:</span> the sword Absolution, the bow Vigil, The Last Shield, field medical kit, fragments of old JSS records.</p>
+      <p class="spoiler">Formerly Mercy of the original JSS. His captors exploited his healing through repeated killing; he carved names into his skin. His war now targets black sites — and has reached A.E.G.I.S.-linked families.</p></div>
+    <div class="card"><h4>ThunderBringer / StormBringer</h4><div class="role">SOVEREIGN'S FORMER SIDEKICK</div>
+      <p><span class="k">Powers:</span> Atmospheric control, lightning, wind, pressure, temperature manipulation, flight, storm amplification — reaching global weather.</p></div>
+    <div class="card"><h4>Sovereign</h4><div class="role">RESTORED LEADER / LIVING WITNESS</div>
+      <p>The last Primaris. Exceptional power restrained by a no-kill oath. He leads the Quiet Rebellion toward patient recruitment and evidence.</p></div>
+    <div class="card"><h4>Mastermind</h4><div class="role">ORIGINAL JSS PSYCHIC / RECOVERING</div>
+      <p><span class="k">Powers:</span> Psychic Power (normally Telekinesis, Pyrotechnics, Psychic Shaping — armor, weapons, constructs in dark teal energy) and learned Aethercraft.</p>
+      <p>Human; the strongest psychic ever recorded. Sarcastic, flippant, irreverent — even near death.</p>
+      <p class="spoiler"><span class="k">Origin:</span> His mother, Maliere Pendragon, and a coven of 22 witches poured power into him before birth, meaning him to kill the Elder Being Dagon — with a hidden curse to dispose of him after. Maliere bargained with Dagon, who destroyed the coven, married her, and at 18 took Mastermind as apprentice and slave. At 25 a Fae prince's de-enchantment revealed the manipulation; he drained Dagon's power and later stole Asmodeus's ever-changing pocket manor.</p></div>
   </div>
 
-  <h2 style="margin-top:1.5rem">Wildcards, Antagonists &amp; Major NPCs</h2>
-  <div class="panel"><div class="tblwrap"><table>
-    <tr><th>Name</th><th>Role</th><th>Canon Notes</th></tr>
-    <tr><td><b>HellKnight</b></td><td>Ancient infernal revenge force</td><td><span class="spoiler">Former lover of Athena, father of Connor. Thought killed Connor and banished HellKnight to Hell for 50 years. </span>His black hellfire prevents regeneration and can wound IX princes.</td></tr>
-    <tr><td><b>Bansidhe</b></td><td>Rogue antihero / sonic weapon</td><td>Former KGB asset. Human enhanced. Sonic scream, flight, perception, durability, and gear. Vendetta broke her control systems and freed her, creating a volatile bond.</td></tr>
-    <tr><td><b>Enforcer</b></td><td>Kurathi P.A.R.A.G.O.N. contract asset</td><td>Publicly presented as Justice Society-aligned<span class="spoiler">, privately a covert enforcer and hitman</span>. Physical threat tier 9. Major complication for the Kurathi mission.</td></tr>
-    <tr><td><b>Ryse</b></td><td>A.E.G.I.S.-loyal hopeful hero</td><td>Believes A.E.G.I.S. is flawed but necessary. Ideological mirror to Vendetta.<span class="spoiler"> Potential future recruit if Sovereign's truth reaches him.</span></td></tr>
-    <tr><td><b>Paradox</b></td><td>Existential wildcard</td><td>Time, plague, reality, arcane, and possession threat.<span class="spoiler"> Public hero image may hide A.E.G.I.S. containment and Morgan entity complications.</span></td></tr>
-    <tr><td><b>Thought</b></td><td>Traitor and speed/mental threat</td><td>Former JSS member.<span class="spoiler"> Killed Connor, delivered the final blow to Boom, and is hunted by HellKnight.</span></td></tr>
-    <tr><td><b>Fabric Tear</b></td><td>A-class villain</td><td>Reality cutter.<span class="spoiler"> May know Convergence secrets. Must be recruited, contained, or defeated.</span></td></tr>
-    <tr><td><b>Salem Coven</b></td><td>Mystic team</td><td>Hunted occult team with distrust of soldiers and state heroes.<span class="spoiler"> Potential rebellion allies.</span></td></tr>
-    <tr><td><b>Cosmic Howl</b></td><td>Tragic Warg stellar mutant</td><td>Rejected by Warg society, taken by A.E.G.I.S., enhanced, caged — died after being driven into the sun by Mythos and Kitsune using HELIO-9.</td></tr>
-    <tr><td><b>Ajax Prime</b></td><td>Prime survivor</td><td>Collapsed-universe conqueror infused with antimatter.<span class="spoiler"> Killed by Mythos during the Nightworld Incident.</span></td></tr>
-  </table></div></div>
-
-  <h2>Major Story Events</h2>
-  <div class="panel"><div class="tblwrap"><table>
-    <tr><th>Event</th><th>Characters</th><th>Summary</th></tr>
-    <tr><td><b>Boom's Last Stand</b></td><td>Boom, Thought, young Vendetta, P.A.R.A.G.O.N.</td><td>A.E.G.I.S. broadcast Boom as unstable<span class="spoiler"> while hiding that he was protecting evacuation corridors. Sonic dampeners and nanobites weakened him. Thought delivered the final blow. Boom forgave him and gave the people a final thumbs up</span>.</td></tr>
-    <tr><td><b>Saint Lazarus Holdout</b></td><td>Vendetta, Harbinger, Grinder, Voltage Priest</td><td>After Blackgate Omega collapsed, 93 inmates escaped. Vendetta held Saint Lazarus Medical Center for 16 hours and defeated 23 villains before Harbinger arrived. They killed Grinder and stayed for threat 24.</td></tr>
-    <tr><td><b>Rooftop Lesson</b></td><td>Harbinger, Kaos, Vendetta</td><td>Kaos used a frequency clamp to suppress Harbinger's healing and hostages to limit his explosions. Harbinger adapted, killed Kaos, saved civilians, and accepted that some monsters stay down.</td></tr>
-    <tr><td><b>Cosmic Howl Incident</b></td><td>Mythos, Kitsune, Cosmic Howl</td><td>A dying Warg stellar mutant created miniature suns above a city. Kitsune deployed a hidden battlefield and hacked HELIO-9. Mythos drove Cosmic Howl into the sun.</td></tr>
-    <tr class="spoiler"><td><b>Nightworld Incident</b></td><td>Mythos, Ajax Prime</td><td>Mythos faced Ajax Prime alone on a dead world. He lost control, destroyed Nightworld, and erased Ajax using ancient raw power beyond standard magic.</td></tr>
-    <tr class="spoiler"><td><b>HellKnight Return</b></td><td>HellKnight, Clockwork Angel, K, IX-66, IX-77</td><td>HellKnight arrived through black fire, revealed his hellfire prevents IX regeneration, recognized Clockwork Angel as the daughter of his old ally, and left to hunt Thought.</td></tr>
-    <tr><td><b>Rooftop Argument</b></td><td>Vendetta, Ryse</td><td>Vendetta captured Ryse and confronted him over A.E.G.I.S., Boom, and propaganda. Ryse insisted no one is beyond saving. Vendetta spared him.</td></tr>
-    <tr class="spoiler"><td><b>Sovereign Return</b></td><td>Vigilantes, ThunderBringer, Sovereign</td><td>The Vigilantes rescued Sovereign. He and ThunderBringer joined the Quiet Rebellion plan to turn heroes against A.E.G.I.S. carefully.</td></tr>
-  </table></div></div>
-
-  <h2 class="spoiler blockspoiler">Open Canon Questions <span class="tag red" style="vertical-align:middle">GM</span></h2>
-  <div class="panel spoiler blockspoiler">
-    <p>• Is the original Clockwork Angel definitively named Eleanor, or was that HellKnight's mistaken recognition?</p>
-    <p>• Are Gravilins a separate species, or another name/subgroup of the Graven?</p>
-    <p>• What is Thought's true reason for betraying the JSS, killing Connor, and striking Boom?</p>
-    <p>• Are Master Mind and SunBurst alive, missing, dead, or hidden?</p>
-    <p>• How much do the Alder know about Sovereign's age and Mythos' forbidden bloodline?</p>
-    <p>• Which P.A.R.A.G.O.N. heroes can be turned first, and which must be defeated?</p>
+  <h2 style="margin-top:1.5rem">Adversaries &amp; Major Figures</h2>
+  <div class="grid">
+    <div class="card"><h4>HellKnight</h4><div class="role">INFERNAL REVENGE FORCE</div>
+      <p>His black hellfire prevents regeneration, including that of IX Princes. Saved Clockwork Angel because her mother once saved him. An ally through particular bonds, not a dependable subordinate.</p>
+      <p class="spoiler">Athena's former lover and Connor's father. Thought killed Connor and banished him to Hell for fifty years.</p></div>
+    <div class="card"><h4>Balakor</h4><div class="role">ANCIENT ONE / MASTER OF DREADCRAFT</div>
+      <p>Known to the Alder as the Walker of Insanity. Wears a broken black-and-gold mask. His manifested presence is an Aether projection; his true presence would be catastrophic to local reality. Patient, precise, alien in scale.</p></div>
+    <div class="card"><h4>Dreadnought</h4><div class="role">DECEASED</div>
+      <p>Eight-foot German combatant. Diamond Flesh hardened his body; the Dreadnought Engine made him larger and more feral. Killed by Vendetta.</p></div>
+    <div class="card"><h4>Whispers</h4><div class="role">DECEASED — MODERN JSS</div>
+      <p>Teleporting modern-JSS member under P.A.R.A.G.O.N. control. Killed by Harbinger's cage of shadow and blood after unmasking as a surprisingly young man. Last words: <i>"Look for the Silver and you will find the Mole!"</i></p></div>
+    <div class="card"><h4>Gui Huang, the Corpse Emperor</h4><div class="role">DEFEATED</div>
+      <p>World-Class undead sorcerer who sought a global undead empire, the Second Dynasty, from Fengdu Ghost City and Ming Mountain. Commanded jiangshi, ghosts, a paper legion, corpse generals, and fallen metahumans. Killed; the Ghost Gate is closed.</p></div>
+    <div class="card"><h4>Vharaxis &amp; the Brood</h4><div class="role">ELIMINATED (PER FINAL SCAN)</div>
+      <p>Female reptilian kaiju whose corpse released dozens of eight-foot juveniles with shared regeneration and adaptation. Stopped under GraveSaint's Quantum Lock.</p></div>
+    <div class="card"><h4>The Alostherians (Alos)</h4><div class="role">AETHER-NATIVE SCAVENGERS</div>
+      <p>Eyeless, eel-like beings that feed on Aether and damage ley lines. Ecological, not malicious. Seven were returned home after the Brooklyn crisis.</p></div>
+    <div class="card"><h4>JaxK, called Scourge</h4><div class="role">EXILED KURATHI HEIR</div>
+      <p>Destroyed his homeworld; exiled on Earth for fifty years under a containment ring. His powers have begun returning.</p></div>
   </div>
+
+  <div class="panel" style="margin-top:1rem"><div class="tblwrap"><table>
+    <tr><th>Name</th><th>Role</th><th>Current Use or Consequence</th></tr>
+    <tr><td><b>Bansidhe</b></td><td>Enhanced former KGB asset; sonic scream, flight, perception, durability</td><td>Vendetta broke her control systems; a volatile bond.</td></tr>
+    <tr><td><b>Ryse</b></td><td>Hopeful A.E.G.I.S.-loyal hero</td><td>Believes the institution is flawed but necessary. Vendetta spared him.</td></tr>
+    <tr><td><b>Enforcer</b></td><td>Kurathi P.A.R.A.G.O.N. contract asset</td><td>Threatens diplomacy and exposes divisions within Kurathi interests.</td></tr>
+    <tr><td><b>Paradox</b></td><td>Time, plague, reality, arcane, possession wildcard</td><td>Public hero identity may hide deeper entity complications.</td></tr>
+    <tr><td><b>Fabric Tear</b></td><td>A-class reality-cutting villain</td><td>Recruit, contain, or defeat; possible Convergence knowledge.</td></tr>
+    <tr><td><b>Fulbritr IX-99</b></td><td>House IX Prince</td><td>Blames Harbinger for IX-66's death; hunted him in Hong Kong.</td></tr>
+    <tr><td><b>Lotgar the Usurper</b></td><td>Ruler of the Wolf Dominion</td><td>Backed by A.E.G.I.S.</td></tr>
+    <tr><td><b>Cosmic Howl</b></td><td>Rejected stellar Warg mutant, enhanced by A.E.G.I.S.</td><td>Dead via HELIO-9; evidence of institutional abuse.</td></tr>
+    <tr><td><b>Ajax Prime</b></td><td>Antimatter-infused conqueror</td><td>Killed by Mythos at Nightworld.</td></tr>
+    <tr><td><b>Kaos</b></td><td>Hostage-taker who used tuned suppression</td><td>Killed after Harbinger adapted and saved the civilians.</td></tr>
+    <tr><td><b>Grinder</b></td><td>Major threat at Saint Lazarus</td><td>Killed by Vendetta and Harbinger.</td></tr>
+    <tr><td><b>Voltage Priest</b></td><td>Saint Lazarus threat</td><td>No separate resolved dossier.</td></tr>
+    <tr><td><b>IX-77</b></td><td>Royal Prince in the HellKnight confrontation</td><td>Distinct from deceased IX-66.</td></tr>
+    <tr><td><b>Arska</b></td><td>Source of the Dark Prophet prophecy</td><td>Drives Alder hybrid persecution.</td></tr>
+  </table></div></div>
 </section>
 
-<!-- ============ MISSIONS ============ -->
+<!-- ============ CAMPAIGN ============ -->
 <section id="page-missions" class="page">
-  <h2>Current Strategic Plan: The Quiet Rebellion</h2>
-  <div class="panel accent spoiler blockspoiler">
-    <span class="tag red">GM / Campaign-Group Only</span>
-    <p>Sovereign's plan is not immediate open war. The Vigilantes will turn heroes against A.E.G.I.S. slowly, carefully, and with evidence:</p>
-    <p>1. Find heroes and P.A.R.A.G.O.N. loyalists with doubts.<br>
-    2. Show them evidence slowly rather than forcing immediate public war.<br>
-    3. Reveal A.E.G.I.S. lies one by one — especially around Boom, the JSS, Blackgate, and hidden experiments.<br>
-    4. Protect defectors before A.E.G.I.S. can erase them.<br>
-    5. Build enough internal fracture that A.E.G.I.S. begins to fall from disbelief, not only force.</p>
-  </div>
+  <h2>Current Campaign Position</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Development</th><th>Present State</th><th>What It Changes</th></tr>
+    <tr><td><b>Sovereign returns</b></td><td>Rescued and working with the resistance</td><td>The old Hero Age has a living leader again.</td></tr>
+    <tr><td><b>Mastermind returns</b></td><td>Rescued from his trapped manor; recovering</td><td>A witness, ally, and personal link to Vendetta's youth.</td></tr>
+    <tr><td><b>The Silver investigation</b></td><td>Dreadnought and Whispers are dead; the lead survives</td><td>Someone had access to sensitive information about Sovereign.</td></tr>
+    <tr><td><b>House IX crisis</b></td><td>Princesses murdered; recall and war pressure continue</td><td>White Seraph's return provides access to an internal investigation.</td></tr>
+    <tr><td><b>Fengdu</b></td><td>Gui Huang defeated; Ghost Gate closed</td><td>Boom and the original Clockwork Angel were freed and passed on.</td></tr>
+    <tr><td><b>Vharaxis brood</b></td><td>Immediate brood eliminated; zero active signatures</td><td>The Quantum Lock still held at the closing beat; release and cleanup remain.</td></tr>
+    <tr><td><b>Brooklyn ley lines</b></td><td>Summoning ended; surviving Alos returned; circulation stabilized</td><td>Mythos earned Dreadcraft 1 through Balakor's instruction.</td></tr>
+  </table></div></div>
+
+  <h2>Completed Events</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Event</th><th>Outcome</th><th>Continuing Consequence</th></tr>
+    <tr><td><b>Boom's last stand</b></td><td>Boom died protecting people during the broadcast assault</td><td>Vendetta's opposition centers on the lie told about that death.</td></tr>
+    <tr><td><b>Saint Lazarus holdout</b></td><td>Vendetta defended the hospital; Harbinger joined; Grinder killed</td><td>Survivors, medical contacts, and public reputation matter.</td></tr>
+    <tr><td><b>Rooftop with Kaos</b></td><td>Hostages saved; Kaos killed</td><td>Harbinger learned his frequency vulnerability and the cost of lethal finality.</td></tr>
+    <tr><td><b>Cosmic Howl incident</b></td><td>Killed through the HELIO-9 operation</td><td>His exploitation complicates a simple victory story.</td></tr>
+    <tr><td><b>Nightworld incident</b></td><td>Ajax Prime killed; Nightworld destroyed</td><td>Mythos fears a repeat of his loss of control.</td></tr>
+    <tr><td><b>Sovereign rescue</b></td><td>Sovereign returned; ThunderBringer joined</td><td>The Quiet Rebellion gained leadership and living testimony.</td></tr>
+    <tr><td><b>Fengdu</b></td><td>Nine amulets destroyed; Gui Huang killed; Ghost Gate shut</td><td>Boom and the original Clockwork Angel passed on; wider remnants are possible leads.</td></tr>
+    <tr><td><b>Vharaxis brood</b></td><td>Immediate brood eliminated</td><td>The Lock remained; release, injuries, and cleanup need resolution.</td></tr>
+    <tr><td><b>Dreadnought &amp; Whispers</b></td><td>Both killed</td><td>Independent information points toward "the Silver."</td></tr>
+    <tr><td><b>Brooklyn ley lines</b></td><td>Summoning dismantled; seven Alos returned</td><td>Mythos earned Dreadcraft 1 and Balakor's acknowledgment.</td></tr>
+    <tr><td><b>Mastermind rescue</b></td><td>Extracted; manor released to Wild Space</td><td>Recovery, reunion, and testimony become the next work.</td></tr>
+  </table></div></div>
+
+  <h2>Mission Board</h2>
+  <div class="panel"><div class="tblwrap"><table>
+    <tr><th>Objective</th><th>Status</th></tr>
+    <tr><td><b>The Silver</b></td><td>Trace the mole with access to sensitive information about Sovereign.</td></tr>
+    <tr><td><b>House IX return</b></td><td>Travel via the New York Warg Embassy to investigate the princess massacre.</td></tr>
+    <tr><td><b>Mastermind's recovery</b></td><td>Keep him safe; learn who trapped the manor and what they learned.</td></tr>
+    <tr><td><b>Vharaxis aftermath</b></td><td>Resolve the Lock's release, injuries, civilian damage, and custody of biological material.</td></tr>
+    <tr><td><b>Recruit the Salem Coven</b></td><td>Convince hunted occult heroes to join the rebellion.</td></tr>
+    <tr><td><b>Find Fabric Tear</b></td><td>Turn, contain, or defeat the reality cutter.</td></tr>
+    <tr><td><b>Kurathi &amp; Alder representatives</b></td><td>Learn where their leadership stands.</td></tr>
+    <tr><td><b>Warg Delegation</b></td><td>Exploit divisions within Warg politics.</td></tr>
+  </table></div></div>
+
   <div class="panel" id="missionLocked">
-    <p class="mono" style="color:var(--text-dim)">// MISSION BOARD ENCRYPTED — VIGILANTE CLEARANCE REQUIRED //<br>// Enable GM MODE to decrypt current operations. //</p>
+    <p class="mono" style="color:var(--text-dim)">// GM PREP FILES ENCRYPTED — VIGILANTE CLEARANCE REQUIRED //<br>// Enable GM MODE to decrypt evidence board and session prep. //</p>
   </div>
+
+  <h2 class="spoiler blockspoiler">The Silver Evidence Board <span class="tag red" style="vertical-align:middle">GM</span></h2>
   <div class="panel spoiler blockspoiler">
-    <span class="tag red">Mission Board</span>
     <div class="tblwrap"><table>
-      <tr><th>Mission</th><th>Target</th><th>Purpose</th><th>Best Fits</th></tr>
-      <tr><td><b>Recruit the Salem Coven</b></td><td>Mystic team in old Salem</td><td>Convince hunted occult heroes to join the rebellion.</td><td>Mythos, Harbinger, Master Mind if available, or a diplomatic team.</td></tr>
-      <tr><td><b>Find Fabric Tear</b></td><td>A-class reality-cutting villain</td><td>Turn him if possible. If not, put him in holding or defeat him once and for all.</td><td>Kitsune for analysis, Mythos for containment, Vendetta/Harbinger for force.</td></tr>
-      <tr><td><b>Kurathi Power Center</b></td><td>Kurathi Earth government representatives</td><td>Learn where Kurathi leadership stands and whether they are allied, threatened, or manipulating A.E.G.I.S.</td><td>Athena connection, Mythos risk, Enforcer complication.</td></tr>
-      <tr><td><b>Alder Representatives</b></td><td>Alder diplomatic/political enclave</td><td>Get truths about Convergence, Elegantari, Mythos, and Sovereign's age.</td><td>Mythos, Kitsune, Sovereign carefully.</td></tr>
-      <tr><td><b>Warg Delegation</b></td><td>Wolf Dominion and Warg power blocs</td><td>Exploit divisions between loyalists, doubters, IX princes, and rejected mutants.</td><td>K, Vendetta, Battle Brute legacy, ThunderBringer.</td></tr>
+      <tr><th>Item</th><th>What It Supports</th><th>What It Does Not Prove</th></tr>
+      <tr><td>Whispers's last words</td><td>"The Silver" is a lead linked to a mole</td><td>The exact identity, location, or motive of that mole.</td></tr>
+      <tr><td>Dreadnought's separate information</td><td>The lead is not limited to Whispers's taunt</td><td>That both sources were independent of the same handler or deception.</td></tr>
+      <tr><td>Sensitive knowledge of Sovereign</td><td>Access to rescuers, mental abilities, records, or another route matters</td><td>That every rescuer or telepath is involved.</td></tr>
     </table></div>
+    <p>"Silver" could be a person, title, callsign, bloodline, project, or clearance designation until the campaign establishes otherwise.</p>
+  </div>
+
+  <h2 class="spoiler blockspoiler">Suggested Next Sessions <span class="tag red" style="vertical-align:middle">GM</span></h2>
+  <div class="panel spoiler blockspoiler">
+    <p><b>The Silver:</b> Vendetta, Harbinger, and HellKnight compare the exact wording, circumstances, and timing of their information. Choose one traceable lead — a communication route, assignment record, handler, authorization chain, or surviving equipment. Decide what evidence exists before players choose an approach.</p>
+    <p><b>House IX return:</b> Begin at the New York Warg Embassy with the agreed pickup (seven days after arrangement, in campaign time) as the scene clock. White Seraph travels under a marriage cover with two companions presented as bodyguards. Make the first obstacle about access or credibility. Keep Blue alive; keep IX-66's death and Fulbritr's grievance distinct from the massacre unless play connects them. Keep separate: who carried out the massacre, who benefits, and who can prove it.</p>
+    <p><b>Mastermind after the rescue:</b> A quiet recovery scene with Vendetta and White Seraph. Let him control who stays, what is examined, and when questions begin. His first concern can be practical or irreverent.</p>
+    <p><b>Mythos after Brooklyn:</b> He recognizes strong fear or anger during a minor crisis, lowers it one step, and still must choose what to do. A future Balakor lesson requires new negotiation.</p>
+    <p><b>Fengdu &amp; Vharaxis:</b> Preserve the finality of Boom's and the original Clockwork Angel's release. Possible directions: trapped spirits, necromantic objects, missing prisoners, the bound Lunar Fang. Zero brood signatures reflects the scan at that moment — neither a hidden egg nor proof of none elsewhere.</p>
+    <p><b>Rewards:</b> ~3 group XP for a substantial mission, plus more for a primary objective, major risk or sacrifice, and a milestone. Typical missions 3–5; finales 6–12. Story awards (like Dreadcraft 1) are recorded directly, not charged.</p>
+    <p><b>Mysteries reserved for play:</b> the Silver's identity; Thought's reasons; Atomica's Echo; SunBurst's fate; Lunar Fang's fate; the truth of the princess massacre; Family 23's removal; Kitsune's concealed entity; Mastermind's captors; the Dark Prophet's identity; JaxK's containment.</p>
+  </div>
+
+  <h2 class="spoiler blockspoiler">Quiet Rebellion Strategy <span class="tag red" style="vertical-align:middle">GM</span></h2>
+  <div class="panel spoiler blockspoiler">
+    <p>1. Find heroes and P.A.R.A.G.O.N. loyalists with doubts. 2. Show them evidence slowly. 3. Reveal A.E.G.I.S. lies one by one. 4. Protect defectors before they can be erased. 5. Build enough internal fracture that A.E.G.I.S. falls from disbelief, not only force. Rescue creates trust; safe houses preserve it; reckless disclosure can get a potential ally killed.</p>
   </div>
 </section>
 
@@ -556,14 +785,17 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
   <div class="playrow">
     <select id="speaker">
       <option>GM</option>
-      <option>Sovereign</option>
-      <option>ThunderBringer</option>
       <option>Vendetta</option>
-      <option>K</option>
       <option>Harbinger</option>
       <option>Kitsune</option>
       <option>Mythos</option>
+      <option>White Seraph</option>
+      <option>Komodo</option>
       <option>Clockwork Angel</option>
+      <option>GraveSaint</option>
+      <option>Mastermind</option>
+      <option>Sovereign</option>
+      <option>ThunderBringer</option>
       <option>NPC</option>
     </select>
     <input type="text" id="sayInput" placeholder="Narrate, speak in character, or type /help for commands..." autocomplete="off">
@@ -604,7 +836,7 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.2rem;font-fa
   </a>
   <a class="dl" href="AEGIS_Player_Handout_JSS.pdf" download>
     <span class="icon">PDF</span>
-    <span class="info"><b>Player Handout — The Old JSS</b><p>Spoiler-safe legend of the Justice Society of Sovereigns. Hand to new players.</p></span>
+    <span class="info"><b>Player Handout — The Old JSS</b><p>Spoiler-safe legend of the ten original members of the Justice Society of Sovereigns. Hand to new players.</p></span>
   </a>
 </section>
 
